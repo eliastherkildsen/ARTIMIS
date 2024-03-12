@@ -123,7 +123,7 @@ public class BinDAODB implements BinDAO {
 
         try{
 
-            PreparedStatement ps = conn.prepareCall("SELECT * FROM tblBin WHERE fldBinID = ?");
+            PreparedStatement ps = conn.prepareCall("SELECT * FROM tblBin WHERE fldResturantID = ?");
 
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -156,14 +156,14 @@ public class BinDAODB implements BinDAO {
         try{
 
             PreparedStatement ps = conn.prepareCall("UPDATE tblBin SET fldMaxCapacity = ?, " +
-                    "fldInstallationDate = ?, fldResturantID = ? WHERE id = ?");
+                    "fldInstallationDate = ?, fldResturantID = ? WHERE fldBinID = ?");
 
             ps.setInt(1, bin.getMaxCapacity());
             ps.setDate(2, (java.sql.Date) bin.getInstalationDate());
             ps.setInt(3, bin.getResturentID());
             ps.setInt(4, id);
 
-            ps.executeQuery();
+            ps.executeUpdate();
 
             DebugMessage.info(this, " Updating bin where id is " + id);
 

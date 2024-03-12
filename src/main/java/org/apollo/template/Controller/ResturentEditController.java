@@ -18,6 +18,7 @@ import org.apollo.template.Service.Resturent.ResturentDAO;
 import org.apollo.template.View.ViewList;
 
 import java.net.URL;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -65,7 +66,10 @@ public class ResturentEditController implements Initializable {
         MainController.getInstance().changeView(ViewList.RESTURENT);
     }
 
+    // region Buttons region
     public void onBtnSave(){
+
+        binDAO = new BinDAODB();
 
         // creating a new resturent object.
         if (tfAdress.getLength() > 0 && tfName.getLength() > 0 && cbCity.getSelectionModel().getSelectedItem() != null) {
@@ -74,6 +78,9 @@ public class ResturentEditController implements Initializable {
                     tfAdress.getText(), cbCity.getSelectionModel().getSelectedItem());
 
             resturentDAO = new ResturenDAODB();
+
+            clearResturentBinRefferences();
+
             resturentDAO.update(selectedResturent.getResturentID(), newResturent);
 
         }
@@ -86,7 +93,8 @@ public class ResturentEditController implements Initializable {
         // adds the selected bins to the restaurant.
 
         for (Bin bin : lwAssignedBins.getItems()){
-
+            bin.setResturentID(selectedResturent.getResturentID());
+            binDAO.update(bin.getBinID(), bin);
         }
 
 
@@ -94,6 +102,49 @@ public class ResturentEditController implements Initializable {
 
 
     }
+    public void onBtnDelete(){
+
+        if (selectedResturent != null) {
+
+            resturentDAO = new ResturenDAODB();
+            resturentDAO.delete(selectedResturent.getResturentID());
+
+            // returns the user to Resturent tab
+            onBtnCancel();
+        }
+    }
+    public void onBtnAdd(){
+
+        // check if an item has been selected form LW
+        if (lwAllBins.getSelectionModel().getSelectedIndex() == -1) return;
+
+        Bin selectedBin = lwAllBins.getSelectionModel().getSelectedItem();
+
+
+        // check if selected item exist in LW
+        boolean inLWSelected = false;
+        for (Bin bin: lwAssignedBins.getItems()) {
+            if (bin.getBinID() == selectedBin.getBinID()){
+                inLWSelected = true;
+                break;
+            }
+        }
+
+        if (inLWSelected) return;
+
+        lwAssignedBins.getItems().add(selectedBin);
+        DebugMessage.info(this, "in OnBtnAdd; New bin has been added to selected bins LW : " + selectedBin.toString());
+    }
+    public void btnRemove(){
+        // checks if an item has been selected.
+        if (lwAssignedBins.getSelectionModel().getSelectedItem() == null) return;
+
+        lwAssignedBins.getItems().remove(lwAssignedBins.getSelectionModel().getSelectedItem());
+
+
+    }
+
+    // endregion
 
     public Resturent getSelectedResturent() {
         return selectedResturent;
@@ -102,7 +153,6 @@ public class ResturentEditController implements Initializable {
     public void setSelectedResturent(Resturent selectedResturent) {
         this.selectedResturent = selectedResturent;
     }
-
     private void loadSelectedResturent(){
 
         cityDAO = new CityDAODB();
@@ -115,18 +165,6 @@ public class ResturentEditController implements Initializable {
 
         }
 
-    }
-
-    public void onBtnDelete(){
-
-        if (selectedResturent != null) {
-
-            resturentDAO = new ResturenDAODB();
-            resturentDAO.delete(selectedResturent.getResturentID());
-
-            // returns the user to Resturent tab
-            onBtnCancel();
-        }
     }
 
     private void loadCitys(){
@@ -156,40 +194,24 @@ public class ResturentEditController implements Initializable {
 
     }
 
-    public void onBtnAdd(){
 
-        System.out.println("+");
+    /**
+     * Method that clears all references a restaurant has to a bin.
+     * TODO: NEED HELP WITH THIS SQL SHIT STUFF.
+     * TODO: Create a method for deleting bins! 
+     *
+     *
+     */
+    private void clearResturentBinRefferences(int resturentID){
 
-        // check if an item has been selected form LW
-        if (lwAllBins.getSelectionModel().getSelectedIndex() == -1) return;
+        binDAO = new BinDAODB();
+        List<Bin> binList = new ArrayList<>();
 
-        Bin selectedBin = lwAllBins.getSelectionModel().getSelectedItem();
-
-
-        // check if selected item exist in LW
-        boolean inLWSelected = false;
-        for (Bin bin: lwAssignedBins.getItems()) {
-            if (bin.getBinID() == selectedBin.getBinID()){
-                inLWSelected = true;
-                System.out.println("TRUE");
-                break;
-            }
-        }
-
-        if (inLWSelected) return;
-
-        lwAssignedBins.getItems().add(selectedBin);
-        DebugMessage.info(this, "in OnBtnAdd; New bin has been added to selected bins LW : " + selectedBin.toString());
-    }
-
-    public void btnRemove(){
-        // checks if an item has been selected.
-        if (lwAssignedBins.getSelectionModel().getSelectedItem() == null) return;
-
-        lwAssignedBins.getItems().remove(lwAssignedBins.getSelectionModel().getSelectedItem());
+        binList = binDAO.readAllFromResturentID(resturentID);
 
 
     }
+
 
 
 
