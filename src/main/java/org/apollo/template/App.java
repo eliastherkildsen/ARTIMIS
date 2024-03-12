@@ -23,7 +23,7 @@ public class App extends Application {
 
         JDBC.get();
 
-        stage.setTitle("Apollo - JavaFx Template");
+        stage.setTitle("Artemis");
         stage.setScene(scene);
         stage.getIcons().add(new Image("file:src/main/resources/org/apollo/template/images/TempLogoBG_shadow.png"));
         stage.setMinHeight(600);

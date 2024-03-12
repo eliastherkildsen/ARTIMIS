@@ -42,6 +42,9 @@ public class MainController implements Initializable {
         borderPane.setCenter(loadView(ViewList.RESTURENT));
     }
 
+    @FXML
+    protected void onBtnOperationStatus ( ) { borderPane.setCenter(loadView(ViewList.OPERATION)); }
+
     public void changeView(ViewList viewList){
         borderPane.setCenter(loadView(viewList));
     }

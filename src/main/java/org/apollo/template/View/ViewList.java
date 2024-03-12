@@ -8,7 +8,9 @@ public enum ViewList {
     RESTURENT("ResturentView.fxml", ResturentController.getInstance()),
     RESTURENT_EDIT("ResturentEditView.fxml", ResturentEditController.getInstance()),
     SETTINGS("SettingsView.fxml", SettingsController.getInstance()),
-    HOME("HomeView.fxml", HomeController.getInstance());
+    HOME("HomeView.fxml", HomeController.getInstance()),
+    OPERATION("OperationsTab.fxml", OperationsTabController.getInstance());
+
 
     private final String FXML_FILE_NAME;
     private final Object CONTROLLER;
