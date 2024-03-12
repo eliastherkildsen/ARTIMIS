@@ -1,0 +1,83 @@
+CREATE DATABASE DBFoodWaste;
+
+GO
+use DBFoodWaste;
+
+CREATE TABLE tblCity (
+		fldZipcode INTEGER PRIMARY KEY,
+		fldCityName Varchar(50)
+);
+
+CREATE TABLE tblResturant (
+		fldResturantID INTEGER IDENTITY(1,1) PRIMARY KEY,
+		fldResturantName Varchar(50),
+		fldAdress Varchar(50),
+		fldZipcode INTEGER FOREIGN KEY REFERENCES tblCity(fldZipcode)
+
+);
+
+CREATE TABLE tblBin (
+		fldBinID INTEGER IDENTITY(1,1) PRIMARY KEY,
+		fldMaxCapacity INTEGER,
+		fldInstallationDate DATE,
+		fldResturantID INTEGER FOREIGN KEY REFERENCES tblResturant(fldResturantID)
+);
+
+CREATE TABLE tblBinStatus (
+		fldStatusID INTEGER IDENTITY(1,1) PRIMARY KEY,
+		fldDateTime DATETIME,
+		fldWeight INTEGER,
+		fldBinID INTEGER FOREIGN KEY REFERENCES tblBin(fldBinID)
+);
+
+INSERT INTO tblCity (fldZipcode, fldCityName)
+VALUES
+(8000, 'Aarhus'),
+(5000, 'Odense'),
+(2100, 'Copenhagen'),
+(9000, 'Aalborg'),
+(6000, 'Kolding'),
+(7400, 'Herning'),
+(4000, 'Roskilde'),
+(7100, 'Vejle'),
+(2200, 'Nørrebro'),
+(3000, 'Helsingør');
+
+INSERT INTO tblResturant (fldResturantName, fldAdress, fldZipcode)
+VALUES
+('Restaurant A', 'Langgade 1', 8000),
+('Restaurant B', 'Havnegade 2', 5000),
+('Restaurant C', 'Vesterbrogade 3', 2100),
+('Restaurant D', 'Nørregade 4', 9000),
+('Restaurant E', 'Østergade 5', 6000),
+('Restaurant F', 'Søndergade 6', 7400),
+('Restaurant G', 'Gågaden 7', 4000),
+('Restaurant H', 'Hovedgaden 8', 7100),
+('Restaurant I', 'Strandvejen 9', 2200),
+('Restaurant J', 'Bredgade 10', 3000);
+
+INSERT INTO tblBin (fldMaxCapacity, fldInstallationDate, fldResturantID)
+VALUES
+(100, '2023-01-01', 1),
+(120, '2023-02-01', 2),
+(80, '2023-03-01', 3),
+(150, '2023-04-01', 4),
+(90, '2023-05-01', 5),
+(110, '2023-06-01', 6),
+(130, '2023-07-01', 7),
+(100, '2023-08-01', 8),
+(140, '2023-09-01', 9),
+(160, '2023-10-01', 10);
+
+INSERT INTO tblBinStatus (fldDateTime, fldWeight, fldBinID)
+VALUES
+('2023-01-01 08:00:00', 50, 1),
+('2023-02-01 08:30:00', 60, 2),
+('2023-03-01 09:00:00', 40, 3),
+('2023-04-01 10:00:00', 70, 4),
+('2023-05-01 10:30:00', 45, 5),
+('2023-06-01 11:00:00', 55, 6),
+('2023-07-01 12:00:00', 65, 7),
+('2023-08-01 12:30:00', 50, 8),
+('2023-09-01 13:00:00', 75, 9),
+('2023-10-01 13:30:00', 80, 10);

@@ -45,7 +45,7 @@ public class JDBC {
         Properties properties = new Properties();
 
         // Path to the database properties file
-        String DATBASE_PROPS_PATH = "src/main/java/org/apollo/template/Database/db.properties";
+        String DATBASE_PROPS_PATH = "src/main/java/org/apollo/template/Service/Database/db.properties";
 
         File file = new File(DATBASE_PROPS_PATH);
         InputStream input;
