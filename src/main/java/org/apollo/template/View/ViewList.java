@@ -5,9 +5,11 @@ import org.apollo.template.Controller.*;
 public enum ViewList {
 
     MAIN("MainView.fxml", MainController.getInstance()),
-    GAME("GameView.fxml", GameController.getInstance()),
+    RESTURENT("ResturentView.fxml", ResturentController.getInstance()),
+    RESTURENT_EDIT("ResturentEditView.fxml", ResturentEditController.getInstance()),
     SETTINGS("SettingsView.fxml", SettingsController.getInstance()),
     HOME("HomeView.fxml", HomeController.getInstance()),
+    OPERATION("OperationsTab.fxml", OperationsTabController.getInstance()),
     LOGIN("LoginView.fxml", LoginController.getInstance());
 
     private final String FXML_FILE_NAME;

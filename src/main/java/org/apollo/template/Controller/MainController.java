@@ -42,8 +42,21 @@ public class MainController implements Initializable {
 
     @FXML
     protected void onBtnGame( ) {
-        borderPane.setCenter(loadView(ViewList.GAME));
+        borderPane.setCenter(loadView(ViewList.RESTURENT));
     }
+
+    @FXML
+    protected void onBtnOperationStatus ( ) { borderPane.setCenter(loadView(ViewList.OPERATION)); }
+
+    public void changeView(ViewList viewList){
+        borderPane.setCenter(loadView(viewList));
+    }
+
+
+    @FXML
+    private AnchorPane root;
+
+
 
     private MainController() {
         if (INSTANCE == null) {
@@ -57,4 +70,13 @@ public class MainController implements Initializable {
         }
         return INSTANCE;
     }
+
+
+
+
+
+
+
+
+
 }
