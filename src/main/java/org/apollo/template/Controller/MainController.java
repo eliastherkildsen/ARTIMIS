@@ -26,8 +26,8 @@ public class MainController implements Initializable {
     private AnchorPane anchorPane;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        borderPane.setCenter(loadView(ViewList.LOGIN));
-        borderPane.getLeft().setVisible(false);
+        //borderPane.setCenter(loadView(ViewList.LOGIN));
+        //borderPane.getLeft().setVisible(false);
     }
 
     @FXML

@@ -1,12 +1,12 @@
 package org.apollo.template.Service.Resturent;
 
+import org.apollo.template.Domain.Bin;
 import org.apollo.template.Domain.Resturent;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ResturentDAOMemory implements ResturentDAO{
-
     private List<Resturent> resturentList = new ArrayList<>();
     @Override
     public void add(Resturent resturent) {

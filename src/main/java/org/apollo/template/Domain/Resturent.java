@@ -2,6 +2,7 @@ package org.apollo.template.Domain;
 
 import org.apollo.template.Domain.Bin;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Resturent {
@@ -9,6 +10,7 @@ public class Resturent {
     // Restaurant object
     private String resturentName, resturentAdress;
     private int resturentID, resturentZip;
+    private List<Bin> binList = new ArrayList<>();
 
     public Resturent(int resturentID ,String resturentName, String resturentAdress, int resturentZip) {
         this.resturentName = resturentName;
@@ -43,6 +45,8 @@ public class Resturent {
     public int getResturentZip() {
         return resturentZip;
     }
+
+
 
     @Override
     public String toString() {

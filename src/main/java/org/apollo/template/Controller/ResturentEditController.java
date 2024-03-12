@@ -3,9 +3,13 @@ package org.apollo.template.Controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import org.apollo.template.Domain.Bin;
 import org.apollo.template.Domain.City;
 import org.apollo.template.Domain.Resturent;
+import org.apollo.template.Service.Bin.BinDAO;
+import org.apollo.template.Service.Bin.BinDAODB;
 import org.apollo.template.Service.City.CityDAO;
 import org.apollo.template.Service.City.CityDAODB;
 import org.apollo.template.Service.Debugger.DebugMessage;
@@ -14,6 +18,8 @@ import org.apollo.template.Service.Resturent.ResturentDAO;
 import org.apollo.template.View.ViewList;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -21,11 +27,16 @@ public class ResturentEditController implements Initializable {
     private static ResturentEditController INSTANCE = new ResturentEditController();
     private ResturentDAO resturentDAO;
     private CityDAO cityDAO;
+    private BinDAO binDAO;
     private Resturent selectedResturent = null;
     @FXML
     private TextField tfAdress, tfName;
     @FXML
     private ChoiceBox<City> cbCity;
+    @FXML
+    private ListView<Bin> lwAllBins, lwAssignedBins;
+    private List<Bin> selectedBins = new ArrayList<>();
+
 
 
 
@@ -46,6 +57,8 @@ public class ResturentEditController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadCitys();
         loadSelectedResturent();
+        loadAllBins();
+        loadAssignedBins();
     }
 
     public void onBtnCancel(){
@@ -53,8 +66,6 @@ public class ResturentEditController implements Initializable {
     }
 
     public void onBtnSave(){
-
-
 
         // creating a new resturent object.
         if (tfAdress.getLength() > 0 && tfName.getLength() > 0 && cbCity.getSelectionModel().getSelectedItem() != null) {
@@ -72,6 +83,15 @@ public class ResturentEditController implements Initializable {
         }
 
 
+        // adds the selected bins to the restaurant.
+
+        for (Bin bin : lwAssignedBins.getItems()){
+
+        }
+
+
+
+
 
     }
 
@@ -83,7 +103,7 @@ public class ResturentEditController implements Initializable {
         this.selectedResturent = selectedResturent;
     }
 
-    public void loadSelectedResturent(){
+    private void loadSelectedResturent(){
 
         cityDAO = new CityDAODB();
 
@@ -109,7 +129,7 @@ public class ResturentEditController implements Initializable {
         }
     }
 
-    public void loadCitys(){
+    private void loadCitys(){
 
         cityDAO = new CityDAODB();
         cbCity.getItems().addAll(cityDAO.readAll());
@@ -120,8 +140,57 @@ public class ResturentEditController implements Initializable {
             }
         }
 
+    }
+
+    private void loadAllBins(){
+        binDAO = new BinDAODB();
+        lwAllBins.getItems().addAll(binDAO.readAll());
+    }
+
+    private void loadAssignedBins(){
+
+        if (selectedResturent == null) return;
+
+        binDAO = new BinDAODB();
+        lwAssignedBins.getItems().addAll(binDAO.readAllFromResturentID(selectedResturent.getResturentID()));
+
+    }
+
+    public void onBtnAdd(){
+
+        System.out.println("+");
+
+        // check if an item has been selected form LW
+        if (lwAllBins.getSelectionModel().getSelectedIndex() == -1) return;
+
+        Bin selectedBin = lwAllBins.getSelectionModel().getSelectedItem();
+
+
+        // check if selected item exist in LW
+        boolean inLWSelected = false;
+        for (Bin bin: lwAssignedBins.getItems()) {
+            if (bin.getBinID() == selectedBin.getBinID()){
+                inLWSelected = true;
+                System.out.println("TRUE");
+                break;
+            }
+        }
+
+        if (inLWSelected) return;
+
+        lwAssignedBins.getItems().add(selectedBin);
+        DebugMessage.info(this, "in OnBtnAdd; New bin has been added to selected bins LW : " + selectedBin.toString());
+    }
+
+    public void btnRemove(){
+        // checks if an item has been selected.
+        if (lwAssignedBins.getSelectionModel().getSelectedItem() == null) return;
+
+        lwAssignedBins.getItems().remove(lwAssignedBins.getSelectionModel().getSelectedItem());
 
 
     }
+
+
 
 }

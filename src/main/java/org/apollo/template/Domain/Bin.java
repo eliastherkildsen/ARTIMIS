@@ -45,4 +45,12 @@ public class Bin {
     public void setInstalationDate(Date instalationDate) {
         this.instalationDate = instalationDate;
     }
+
+    @Override
+    public String toString() {
+        return "Bin{" +
+                "binID=" + binID +
+                ", MaxCapacity=" + MaxCapacity +
+                '}';
+    }
 }

@@ -37,7 +37,7 @@
                   <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="405.0">
                      <children>
                         <Label text="All bins" />
-                        <ListView layoutX="10.0" layoutY="27.0" prefHeight="132.0" prefWidth="249.0" />
+                        <ListView fx:id="lwAllBins" layoutX="10.0" layoutY="27.0" prefHeight="165.0" prefWidth="249.0" />
                      </children>
                      <padding>
                         <Insets right="3.0" />
@@ -45,14 +45,14 @@
                   </VBox>
                   <AnchorPane prefHeight="100.0" prefWidth="253.0">
                      <children>
-                        <Button layoutX="38.0" layoutY="42.0" mnemonicParsing="false" text="+" />
-                        <Button layoutX="38.0" layoutY="76.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+                        <Button layoutX="38.0" layoutY="42.0" mnemonicParsing="false" onAction="#onBtnAdd" text="+" />
+                        <Button layoutX="38.0" layoutY="76.0" mnemonicParsing="false" onAction="#btnRemove" prefHeight="25.0" prefWidth="25.0" text="-" />
                      </children>
                   </AnchorPane>
                   <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="427.0">
                      <children>
                         <Label text="Assigned bins" />
-                        <ListView prefHeight="132.0" prefWidth="275.0">
+                        <ListView fx:id="lwAssignedBins" prefHeight="132.0" prefWidth="275.0">
                            <padding>
                               <Insets top="20.0" />
                            </padding>
