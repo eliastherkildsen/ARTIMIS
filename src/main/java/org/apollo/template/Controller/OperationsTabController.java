@@ -1,14 +1,27 @@
 package org.apollo.template.Controller;
 
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.BorderPane;
+import org.apollo.template.Domain.Resturent;
 import org.apollo.template.Service.Debugger.DebugMessage;
+import org.apollo.template.Service.Resturent.ResturenDAODB;
+import org.apollo.template.Service.Resturent.ResturentDAO;
 
-public class OperationsTabController {
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class OperationsTabController implements Initializable {
 
     private static OperationsTabController INSTANCE = new OperationsTabController();
 
+    @FXML
     private BorderPane borderPane;
-
+    @FXML
+    private ChoiceBox<Resturent> cbLocations;
 
     private OperationsTabController(){
         if (INSTANCE == null){
@@ -25,13 +38,26 @@ public class OperationsTabController {
         return INSTANCE;
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-    //Choice box that displays all restaurants and their address
-    // Need to get restaurant name and address from database
+        populateChoiceBox();
+
+    }
+
+    /**
+     * Method for populating the location choice box
+     */
 
     private void populateChoiceBox(){
 
+        ResturentDAO resturentDAO = new ResturenDAODB();
+
+        cbLocations.getItems().addAll(resturentDAO.readall());
+
     }
+
+
 
 
 }

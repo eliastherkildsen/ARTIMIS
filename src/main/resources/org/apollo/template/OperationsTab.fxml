@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -27,15 +27,15 @@
                         </Label>
                         <HBox prefHeight="18.0" prefWidth="153.0">
                            <children>
-                              <Label text="Total">
+                              <Label text="Total bins">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets right="65.0" />
+                                    <Insets right="35.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label text="123">
+                              <Label fx:id="lbTotal" text="123">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -52,7 +52,7 @@
                                     <Insets right="22.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label text="123">
+                              <Label fx:id="lbOperational" text="123">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -69,7 +69,7 @@
                                     <Insets right="24.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label text="123">
+                              <Label fx:id="lbUnavailable" text="123">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -86,7 +86,7 @@
                                     <Insets right="74.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label text="123">
+                              <Label fx:id="lbFull" text="123">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -123,7 +123,7 @@
                                     <Insets right="30.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label text="123">
+                              <Label fx:id="lbTotalCap" text="123">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -140,7 +140,7 @@
                                     <Insets right="31.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label text="123">
+                              <Label fx:id="lbCurrentLevel" text="123">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -203,14 +203,14 @@
                      <children>
                         <HBox alignment="TOP_CENTER" prefHeight="33.0" prefWidth="100.0">
                            <children>
-                              <Label text="Full bins">
+                              <Label text="All bins">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
                            </children>
                         </HBox>
-                        <ListView prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;" />
+                        <ListView fx:id="LVAllBins" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;" />
                      </children>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="370.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
@@ -230,7 +230,7 @@
                               <Insets bottom="25.0" />
                            </VBox.margin>
                         </HBox>
-                        <ChoiceBox prefWidth="150.0" style="-fx-background-color: B4E0F8;" />
+                        <ChoiceBox fx:id="cbLocations" prefWidth="150.0" style="-fx-background-color: B4E0F8;" />
                      </children></VBox>
                </children></HBox>
          </children>
