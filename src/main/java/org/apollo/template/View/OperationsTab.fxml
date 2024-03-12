@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.apollo.template.View.OperationsTab">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <HBox prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="191.0" prefWidth="163.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="20.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label text="Overview" textAlignment="CENTER">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="35.0" />
+                           </padding>
+                        </Label>
+                        <HBox prefHeight="18.0" prefWidth="153.0">
+                           <children>
+                              <Label text="Total">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="65.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="123">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="21.0" prefWidth="153.0">
+                           <children>
+                              <Label text="Operational">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="22.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="123">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="20.0" prefWidth="153.0">
+                           <children>
+                              <Label text="Unavailable">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="24.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="123">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="20.0" prefWidth="153.0">
+                           <children>
+                              <Label text="Full">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="74.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="123">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </VBox>
+                  <PieChart fx:id="OperationsPieChart" prefHeight="179.0" prefWidth="196.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" right="15.0" />
+                     </HBox.margin></PieChart>
+                  <VBox prefHeight="179.0" prefWidth="185.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
+                     <children>
+                        <HBox alignment="TOP_CENTER" prefHeight="39.0" prefWidth="159.0">
+                           <children>
+                              <Label text="Stats">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="20.0" prefWidth="154.0">
+                           <children>
+                              <Label text="Total capacity">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="30.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="123">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="17.0" prefWidth="154.0">
+                           <children>
+                              <Label text="Current levels">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="31.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="123">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="17.0" prefWidth="154.0">
+                           <children>
+                              <Label text="Weekly total">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="38.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="123">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="20.0" prefWidth="154.0">
+                           <children>
+                              <Label text="Life time waste">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="23.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="123">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="179.0" prefWidth="178.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="20.0" right="15.0" top="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <HBox alignment="TOP_CENTER" prefHeight="33.0" prefWidth="100.0">
+                           <children>
+                              <Label text="Full bins">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <ListView prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="370.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <HBox alignment="TOP_CENTER" prefHeight="36.0" prefWidth="370.0">
+                           <children>
+                              <Label text="Choose Location To View Data">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="25.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <ChoiceBox prefWidth="150.0" style="-fx-background-color: B4E0F8;" />
+                     </children></VBox>
+               </children></HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
