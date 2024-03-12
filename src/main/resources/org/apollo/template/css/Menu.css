@@ -1,0 +1,35 @@
+.button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+
+    -fx-font-size: 20px;
+    -fx-text-fill: #000000;
+
+    -fx-border-color: #000000;
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-border-insets: 0px 10px 0px 10px;
+
+    -fx-padding: 8px 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0);
+    -fx-transition: background-color 0.3s, -fx-border-color 0.3s, -fx-text-fill 0.3s;
+
+}
+
+.button:hover {
+    -fx-border-width: 0px 0px 3px 0px;
+
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-font-size: 21px;
+}
+
+.anchor-pane {
+    -fx-border-color: rgba(73, 67, 67, 0.91);
+    -fx-border-width: 0px 1px 0px 0px;
+
+    -fx-background-color: rgb(161, 161, 161);
+}
+
+
+
+
