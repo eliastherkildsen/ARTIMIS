@@ -21,10 +21,13 @@ public class MainController implements Initializable {
     private static MainController INSTANCE = new MainController();
 
     @FXML
-    private BorderPane borderPane;
+    public BorderPane borderPane;
+    @FXML
+    private AnchorPane anchorPane;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        borderPane.setCenter(loadView(ViewList.HOME));
+        borderPane.setCenter(loadView(ViewList.LOGIN));
+        borderPane.getLeft().setVisible(false);
     }
 
     @FXML
@@ -42,11 +45,6 @@ public class MainController implements Initializable {
         borderPane.setCenter(loadView(ViewList.GAME));
     }
 
-    @FXML
-    private AnchorPane root;
-
-
-
     private MainController() {
         if (INSTANCE == null) {
             DebugMessage.info(this, "Creating an instance of " + this);
@@ -59,11 +57,4 @@ public class MainController implements Initializable {
         }
         return INSTANCE;
     }
-
-
-
-
-
-
-
 }

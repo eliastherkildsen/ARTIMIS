@@ -6,7 +6,7 @@
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <left>
-        <AnchorPane maxWidth="235.0" minWidth="200.0" prefHeight="618.0" prefWidth="206.0" stylesheets="@css/Menu.css" BorderPane.alignment="TOP_LEFT">
+        <AnchorPane fx:id="menuBar" maxWidth="235.0" minWidth="200.0" prefHeight="618.0" prefWidth="206.0" stylesheets="@css/Menu.css" BorderPane.alignment="TOP_LEFT">
             <VBox maxHeight="-Infinity" maxWidth="301.0" minWidth="200.0" prefHeight="680.0" prefWidth="206.0" spacing="10.0" styleClass="anchor-pane" AnchorPane.bottomAnchor="-27.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>

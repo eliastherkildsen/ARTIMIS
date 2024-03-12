@@ -2,6 +2,7 @@ package org.apollo.template;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.View.ViewList;
 
@@ -34,5 +35,4 @@ public class ViewLoader {
             return null;
         }
     }
-
 }
