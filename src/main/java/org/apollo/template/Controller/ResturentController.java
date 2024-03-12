@@ -1,10 +1,22 @@
 package org.apollo.template.Controller;
 
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
+import org.apollo.template.Domain.Resturent;
 import org.apollo.template.Service.Debugger.DebugMessage;
+import org.apollo.template.Service.Resturent.ResturenDAODB;
+import org.apollo.template.Service.Resturent.ResturentDAO;
 import org.apollo.template.View.ViewList;
 
-public class ResturentController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ResturentController implements Initializable {
     private static ResturentController INSTANCE = new ResturentController();
+    @FXML
+    private ListView lwResturents;
+    private ResturentDAO DAO;
 
 
 
@@ -21,8 +33,29 @@ public class ResturentController {
         return INSTANCE;
     }
 
-    public void onBtnCreateNewClick(){
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadResturents();
+    }
+
+    public void onBtnEditClick(){
         MainController.getInstance().changeView(ViewList.RESTURENT_EDIT);
+
+        if (lwResturents.getSelectionModel().getSelectedItems() != null) {
+            Resturent selectedResturent = (Resturent) lwResturents.getSelectionModel().getSelectedItem();
+            ResturentEditController.getInstance().setSelectedResturent(selectedResturent);
+        }
+    }
+
+    private void loadResturents(){
+
+        // setting up DAO
+        DAO = new ResturenDAODB();
+        for (Resturent resturent : DAO.readall()){
+            lwResturents.getItems().add(resturent);
+        }
+
+
     }
 
 }
