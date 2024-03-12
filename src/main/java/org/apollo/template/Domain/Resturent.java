@@ -1,5 +1,7 @@
 package org.apollo.template.Domain;
 
+import org.apollo.template.Domain.Bin;
+
 import java.util.List;
 
 public class Resturent {
@@ -7,7 +9,13 @@ public class Resturent {
     // Restaurant object
     private String resturentName, resturentAdress;
     private int resturentID, resturentZip;
-    private List<Bin> binList;
+
+    public Resturent(int resturentID ,String resturentName, String resturentAdress, int resturentZip) {
+        this.resturentName = resturentName;
+        this.resturentAdress = resturentAdress;
+        this.resturentID = resturentID;
+        this.resturentZip = resturentZip;
+    }
 
     public Resturent(int resturentID) {
         this.resturentID = resturentID;
@@ -29,7 +37,8 @@ public class Resturent {
         return resturentZip;
     }
 
-    public List<Bin> getBinList() {
-        return binList;
+    @Override
+    public String toString() {
+        return resturentID + " | " + resturentName;
     }
 }
