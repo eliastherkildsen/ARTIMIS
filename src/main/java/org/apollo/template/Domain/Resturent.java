@@ -17,6 +17,13 @@ public class Resturent {
         this.resturentZip = resturentZip;
     }
 
+    public Resturent(int resturentID ,String resturentName, String resturentAdress, City city) {
+        this.resturentName = resturentName;
+        this.resturentAdress = resturentAdress;
+        this.resturentID = resturentID;
+        this.resturentZip = city.getZipCode();
+    }
+
     public Resturent(int resturentID) {
         this.resturentID = resturentID;
     }

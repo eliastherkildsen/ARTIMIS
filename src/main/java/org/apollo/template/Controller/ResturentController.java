@@ -39,12 +39,14 @@ public class ResturentController implements Initializable {
     }
 
     public void onBtnEditClick(){
-        MainController.getInstance().changeView(ViewList.RESTURENT_EDIT);
 
         if (lwResturents.getSelectionModel().getSelectedItems() != null) {
             Resturent selectedResturent = (Resturent) lwResturents.getSelectionModel().getSelectedItem();
             ResturentEditController.getInstance().setSelectedResturent(selectedResturent);
         }
+
+        MainController.getInstance().changeView(ViewList.RESTURENT_EDIT);
+
     }
 
     private void loadResturents(){

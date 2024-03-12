@@ -25,7 +25,7 @@ public class ResturenDAODB implements ResturentDAO {
             ps.setString(2, resturent.getResturentAdress());
             ps.setInt(3, resturent.getResturentZip());
 
-            ps.executeQuery();
+            ps.executeUpdate();
 
             DebugMessage.info(this, " Added a new restaurant to the database.");
 
@@ -52,7 +52,6 @@ public class ResturenDAODB implements ResturentDAO {
             int fldZipcode = rs.getInt("fldZipcode");
 
             DebugMessage.info(this, "fetching resturent with id:" + id );
-            ps.close();
 
             return new Resturent(id, fldResturentName, fldAdress, fldZipcode);
 
@@ -101,10 +100,43 @@ public class ResturenDAODB implements ResturentDAO {
     @Override
     public void update(int id, Resturent resturent) {
 
+
+        try {
+            PreparedStatement ps = conn.prepareStatement("UPDATE tblResturant SET fldResturantName = ?, fldAdress = ?, fldZipcode = ? WHERE fldResturantID = ?");
+            ps.setString(1, resturent.getResturentName());
+            ps.setString(2, resturent.getResturentAdress());
+            ps.setInt(3, resturent.getResturentZip());
+            ps.setInt(4, id);
+
+            ps.executeUpdate();
+            ps.close();
+
+            DebugMessage.info(this, "Updated the resturent with id: " + resturent.getResturentID());
+
+        } catch (SQLException e) {
+            DebugMessage.error(this, "in Update; An error occurred " + e.getMessage());
+        }
+
+
+
     }
 
     @Override
     public void delete(int id) {
+
+
+        try {
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM tblResturant WHERE fldResturantID = ?");
+            ps.setInt(1, id);
+            ps.executeUpdate();
+
+            DebugMessage.info(this, "Resturent with id: " + id + "Has been deleted.");
+
+        } catch (SQLException e) {
+            DebugMessage.error(this, "In delete; " + e.getMessage());
+        }
+
+
 
     }
 }
