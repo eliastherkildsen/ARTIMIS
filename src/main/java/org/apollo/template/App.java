@@ -11,6 +11,7 @@ import org.apollo.template.View.ViewList;
 
 import java.io.IOException;
 
+
 public class App extends Application {
 
     @Override
@@ -31,8 +32,5 @@ public class App extends Application {
 
     }
 
-    public static void main(String[] args) {
-        launch();
-
-    }
+    public static void main(String[] args) { launch(); }
 }

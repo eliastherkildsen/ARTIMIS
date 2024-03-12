@@ -84,9 +84,44 @@ public class BinDAODB implements BinDAO {
 
             DebugMessage.info(this, " Fetching all bins.");
 
+            return binList;
+
         }catch (SQLException e){
             DebugMessage.error(this, " in readAll; An error occurred " + e.getMessage());
         }
+        return null;
+    }
+
+    @Override
+    public List<Bin> readAllFromResturentID(int id) {
+
+        try{
+
+            PreparedStatement ps = conn.prepareCall("SELECT * FROM tblBin WHERE fldBinID = ?");
+
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            List<Bin> binList = new ArrayList<>();
+
+            while(rs.next()){
+
+                int fldMaxCapacity = rs.getInt("fldMaxCapacity");
+                java.sql.Date fldInstallationDate = rs.getDate("fldInstallationDate");
+                int fldResturantID = rs.getInt("fldResturantID");
+
+                binList.add(new Bin(id, fldResturantID, fldMaxCapacity, fldInstallationDate));
+
+            }
+
+            DebugMessage.info(this, " Fetching all bins where id is " + id);
+
+            return binList;
+
+        }catch (SQLException e){
+            DebugMessage.error(this, " in readAllFromResturentID; An error occurred " + e.getMessage());
+        }
+
         return null;
     }
 

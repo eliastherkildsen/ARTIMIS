@@ -3,7 +3,9 @@ package org.apollo.template.Controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
+import org.apollo.template.Domain.Bin;
 import org.apollo.template.Domain.Resturent;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.Service.Resturent.ResturenDAODB;
@@ -22,6 +24,8 @@ public class OperationsTabController implements Initializable {
     private BorderPane borderPane;
     @FXML
     private ChoiceBox<Resturent> cbLocations;
+    @FXML
+    private ListView<Bin> LVAllBins;
 
     private OperationsTabController(){
         if (INSTANCE == null){
@@ -57,7 +61,11 @@ public class OperationsTabController implements Initializable {
 
     }
 
+    private void populateListView(){
 
+
+
+    }
 
 
 }
