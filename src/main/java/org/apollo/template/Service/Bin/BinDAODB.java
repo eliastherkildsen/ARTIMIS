@@ -61,7 +61,7 @@ public class BinDAODB implements BinDAO {
         return null;
     }
 
-    public Bin readFromResturentID(int id) {
+    public List<Bin> readFromResturentID(int id) {
         try{
 
             PreparedStatement ps = conn.prepareCall("SELECT * FROM tblBin WHERE fldResturantID = ?");
@@ -70,16 +70,24 @@ public class BinDAODB implements BinDAO {
 
             ResultSet rs = ps.executeQuery();
 
-            int fldMaxCapacity = rs.getInt("fldMaxCapacity");
-            java.sql.Date fldInstallationDate = rs.getDate("fldInstallationDate");
-            int fldResturantID = rs.getInt("fldResturantID");
-            int fldBinID = rs.getInt("fldBinID");
+            List<Bin> binList = new ArrayList<>();
+
+            while(rs.next()){
+
+                int fldMaxCapacity = rs.getInt("fldMaxCapacity");
+                java.sql.Date fldInstallationDate = rs.getDate("fldInstallationDate");
+                int fldResturantID = rs.getInt("fldResturantID");
+                int fldBinID = rs.getInt("fldBinID");
+
+                binList.add(new Bin(fldBinID, fldResturantID, fldMaxCapacity, fldInstallationDate));
+
+            }
 
             DebugMessage.info(this, " fetching bin with resturent ID: " + id);
 
             ps.close();
 
-            return new Bin(id, fldResturantID, fldMaxCapacity, fldInstallationDate);
+            return binList;
 
         }catch (SQLException e){
             DebugMessage.error(this, " in read; An error occurred " + e.getMessage());

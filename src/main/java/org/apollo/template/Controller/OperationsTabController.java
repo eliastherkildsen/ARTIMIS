@@ -15,6 +15,7 @@ import org.apollo.template.Domain.Bin;
 import org.apollo.template.Domain.Resturent;
 import org.apollo.template.Service.Bin.BinDAO;
 import org.apollo.template.Service.Bin.BinDAODB;
+import org.apollo.template.Service.BinStatus.BinStatusUtil;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.Service.Resturent.ResturenDAODB;
 import org.apollo.template.Service.Resturent.ResturentDAO;
@@ -37,7 +38,7 @@ public class OperationsTabController implements Initializable {
     @FXML
     private Button btnConfirm;
     @FXML
-    private Label lbTotal, lbTotalCap;
+    private Label lbTotal, lbTotalCap, lbLifeTimeWaste;
     @FXML
     private PieChart OperationsPieChart;
 
@@ -113,6 +114,7 @@ public class OperationsTabController implements Initializable {
 
         lbTotalCap.setText(String.valueOf(totalCapacity));
 
+        lbLifeTimeWaste.setText(String.valueOf(BinStatusUtil.getLifeTimeWaste(listOfFoundBins)));
 
     }
 
