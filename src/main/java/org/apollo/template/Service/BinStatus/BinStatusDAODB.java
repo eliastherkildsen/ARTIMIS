@@ -50,4 +50,7 @@ public class BinStatusDAODB implements BinStatusDAO{
 
         return null;
     }
+
+
+
 }

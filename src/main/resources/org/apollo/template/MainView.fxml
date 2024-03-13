@@ -18,7 +18,7 @@
                </children>
             </HBox>
 
-                <Button fx:id="btnHome" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#onBtnHome" prefHeight="54.0" prefWidth="202.0" text="Home" />
+                <Button fx:id="btnAnalytics" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#onBtnAnalytics" prefHeight="54.0" prefWidth="202.0" text="Analytics" />
                 <Button fx:id="btnStatistic" alignment="TOP_LEFT" layoutX="10.0" layoutY="90.0" mnemonicParsing="false" onAction="#onBtnStatistic" prefHeight="54.0" prefWidth="202.0" text="Statistic" />
                 <Button fx:id="btnGame" alignment="TOP_LEFT" layoutX="10.0" layoutY="144.0" mnemonicParsing="false" onAction="#onBtnGame" prefHeight="54.0" prefWidth="202.0" text="Game" />
             <Button fx:id="btnOperationStatus" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#onBtnOperationStatus" prefHeight="49.0" prefWidth="220.0" text="Operation Status" />
