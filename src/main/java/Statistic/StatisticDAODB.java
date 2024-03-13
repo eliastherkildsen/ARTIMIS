@@ -48,11 +48,42 @@ public class StatisticDAODB implements StatisticDAO{
             return recordsList;
     }
 
-    @Override
-    public List<String> readDate() {
-        return null;
-    }
+    public List<Records> readRecordsCEO(String start, String end, List<Integer> binID){
 
+        ArrayList<Records> recordsListCEO = new ArrayList<>();
+        Records row;
+
+        StringBuilder binString = new StringBuilder();
+
+        for (Integer bin : binID){
+            binString.append(bin);
+        }
+
+        System.out.println(binString);
+
+        try {
+            PreparedStatement preparedStatement = JDBC.get().getConnection().prepareStatement("SELECT * FROM tblBinStatus WHERE fldBinID IN (?) AND fldDateTime BETWEEN ? AND ?");
+
+            preparedStatement.setDate(2, Date.valueOf(start));
+            preparedStatement.setDate(3, Date.valueOf(end));
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+
+                row = getDataFromResultSet(resultSet);
+                System.out.println("row: " + row);
+                // add record to recordsList
+                recordsListCEO.add(row);
+            }
+
+        }catch (SQLException e){
+            System.err.println("[readAll] could not read all" + e.getMessage());
+        }
+
+
+        return recordsListCEO;
+    }
 
 
     /**

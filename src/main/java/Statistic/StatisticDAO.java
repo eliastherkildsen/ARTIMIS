@@ -11,16 +11,6 @@ public interface StatisticDAO {
 
     public List<Records> readRecords(int days);  // Read. (All records.)
 
-
-
-
-
-
-
-
-
-    public List<String> readDate();     // Read. (All dates.)'
-
-
+    public List<Records> readRecordsCEO(String start, String end, List<Integer> binID);
 
 }

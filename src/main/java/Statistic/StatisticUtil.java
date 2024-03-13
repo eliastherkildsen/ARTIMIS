@@ -24,11 +24,13 @@ public class StatisticUtil {
 
         for (Records dates : records){
 
+            // gets the date and time from the record
             String dateTime = dates.getDateTime();
+            // splits the date and time using the delimiter
             String[] splittedDateTime = dateTime.split(String.valueOf(DELIMITER));
 
-            String datePart = splittedDateTime[0]; // Første del af strengen (dato)
-            //String timePart = splittedDateTime[1]; // Anden del af strengen (tid)
+            String datePart = splittedDateTime[0];      // first part
+            //String timePart = splittedDateTime[1];    // last part
 
             if (!datePart.equals(currentDate)){
                 datesChosen.add(datePart);
@@ -53,11 +55,9 @@ public class StatisticUtil {
                 // splits the date and time using the delimiter
                 String[] splittedDateTime = dateTime.split(String.valueOf(DELIMITER));
 
-                // the day part
-                String datePart = splittedDateTime[0];
 
-                // the time part
-                //String timePart = splittedDateTime[1]; // Anden del af strengen (tid)
+                String datePart = splittedDateTime[0];
+                //String timePart = splittedDateTime[1];
 
                 // if new date than previous date
                 if (!datePart.equals(currentDate)) {
@@ -146,19 +146,19 @@ public class StatisticUtil {
                     totalWeightsPerMonth.add(sumMonth);
                 }
 
-                // Start summing weights for the new month
+                // start summing weights for the new month
                 sumMonth = totalWeightMonth.getWeight();
 
-                // Update the current month
+                // update the current month
                 currentMonth = month;
             } else {
-                // If it's the same month as the previous record, add the weight to the sum
+                // if it's the same month as the previous record, add the weight to the sum
                 sumMonth += totalWeightMonth.getWeight();
                 cntEmptyings++;
             }
         }
 
-        // Add the sum of weights for the last month to the list
+        // add the sum of weights for the last month to the list
         if (!currentMonth.isEmpty()) {
             totalWeightsPerMonth.add(sumMonth);
         }
