@@ -30,6 +30,21 @@
     -fx-background-color: #769be1;
 }
 
+.list-view {
+    -fx-background-color: #B4D0F8;
+    -fx-background-radius: 10;
+}
+
+.list-view .cell {
+    -fx-background-color: #B4D0F8;
+    -fx-text-fill: black;
+
+}
+
+.pie-chart {
+    -fx-background-color: #B4D0F8;
+    -fx-background-radius: 0 10 10 0;
+}
 
 
 
