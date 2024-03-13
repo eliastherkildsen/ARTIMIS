@@ -142,8 +142,9 @@ public class BinDAODB implements BinDAO {
                 int fldMaxCapacity = rs.getInt("fldMaxCapacity");
                 java.sql.Date fldInstallationDate = rs.getDate("fldInstallationDate");
                 int fldResturantID = rs.getInt("fldResturantID");
+                int binID = rs.getInt("fldBinID");
 
-                binList.add(new Bin(id, fldResturantID, fldMaxCapacity, fldInstallationDate));
+                binList.add(new Bin(binID, fldResturantID, fldMaxCapacity, fldInstallationDate));
 
             }
 
