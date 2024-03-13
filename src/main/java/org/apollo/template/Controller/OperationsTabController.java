@@ -80,6 +80,9 @@ public class OperationsTabController implements Initializable {
 
     }
 
+    /***
+     * Method that confirms the selected location
+     */
     @FXML
     private void onActionBtnConfirm(){
 
@@ -91,7 +94,9 @@ public class OperationsTabController implements Initializable {
 
     }
 
-
+    /***
+     * Method that populates the choice box, view list and labels
+     */
     private void populateOverviewStatus(){
 
         BinDAO binDAO = new BinDAODB();
@@ -118,6 +123,9 @@ public class OperationsTabController implements Initializable {
 
     }
 
+    /***
+     * Methods for populating the pie chart
+     */
     @FXML
     private void populatePieChart(){
 
