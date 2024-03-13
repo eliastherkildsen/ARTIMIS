@@ -21,15 +21,22 @@ public class MainController implements Initializable {
     private static MainController INSTANCE = new MainController();
 
     @FXML
-    private BorderPane borderPane;
+    public BorderPane borderPane;
+    @FXML
+    private AnchorPane anchorPane;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        borderPane.setCenter(loadView(ViewList.HOME));
+        //borderPane.setCenter(loadView(ViewList.LOGIN));
+        //borderPane.getLeft().setVisible(false);
     }
 
     @FXML
     protected void onBtnHome() {
         borderPane.setCenter(loadView(ViewList.HOME));
+    }
+    @FXML
+    protected void onBtnCreateBin() {
+        borderPane.setCenter(loadView(ViewList.CREATE_BIN));
     }
 
     @FXML
@@ -39,8 +46,16 @@ public class MainController implements Initializable {
 
     @FXML
     protected void onBtnGame( ) {
-        borderPane.setCenter(loadView(ViewList.GAME));
+        borderPane.setCenter(loadView(ViewList.RESTURENT));
     }
+
+    @FXML
+    protected void onBtnOperationStatus ( ) { borderPane.setCenter(loadView(ViewList.OPERATION)); }
+
+    public void changeView(ViewList viewList){
+        borderPane.setCenter(loadView(viewList));
+    }
+
 
     @FXML
     private AnchorPane root;
@@ -59,6 +74,8 @@ public class MainController implements Initializable {
         }
         return INSTANCE;
     }
+
+
 
 
 
