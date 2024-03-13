@@ -100,8 +100,7 @@ public class AnalyticsController implements Initializable {
 
     public void onBtnUpdate(){
 
-
-
+        // validation input fields.
         if (dpStartDate.getValue() == null) {
             DebugMessage.info(this, "No start date has been selected!");
             return;
@@ -116,18 +115,20 @@ public class AnalyticsController implements Initializable {
             return;
         }
 
-
+        // convertion localdate to java.util.date
         Date startDate = convertFromLocalDateToDate(dpStartDate.getValue());
         Date endDate = convertFromLocalDateToDate(dpEndDate.getValue());
 
-        loadResturentData(startDate, endDate, lwSelectedData.getItems());
+        // loads the binStatus for the selected restaurants
         List<BinStatus> binStatusList = loadResturentData(startDate, endDate, lwSelectedData.getItems());
 
-
+        // checks if data has been received.
         if (binStatusList == null){
             DebugMessage.info(this, "The selected restaurant has not data!");
             return;
         }
+
+        // populating table with loaded data.
         tblData.getItems().addAll(binStatusList);
 
     }
@@ -185,6 +186,7 @@ public class AnalyticsController implements Initializable {
     }
 
     private void createTableColumns() {
+
         TableColumn<BinStatus, Integer> binIDColumn = new TableColumn<>("Bin ID");
         binIDColumn.setCellValueFactory(new PropertyValueFactory<>("binID"));
 
