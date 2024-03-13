@@ -26,6 +26,12 @@ public class Resturent {
         this.resturentZip = city.getZipCode();
     }
 
+    public Resturent(String resturentName, String resturentAdress, City city) {
+        this.resturentName = resturentName;
+        this.resturentAdress = resturentAdress;
+        this.resturentZip = city.getZipCode();
+    }
+
     public Resturent(int resturentID) {
         this.resturentID = resturentID;
     }

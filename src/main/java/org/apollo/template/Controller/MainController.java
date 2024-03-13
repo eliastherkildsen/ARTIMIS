@@ -34,6 +34,10 @@ public class MainController implements Initializable {
     protected void onBtnHome() {
         borderPane.setCenter(loadView(ViewList.HOME));
     }
+    @FXML
+    protected void onBtnCreateBin() {
+        borderPane.setCenter(loadView(ViewList.CREATE_BIN));
+    }
 
     @FXML
     protected void onBtnSettings( ) {

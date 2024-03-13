@@ -4,10 +4,7 @@ import org.apollo.template.Domain.Bin;
 import org.apollo.template.Service.Database.JDBC;
 import org.apollo.template.Service.Debugger.DebugMessage;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +18,13 @@ public class BinDAODB implements BinDAO {
 
             PreparedStatement ps = conn.prepareCall("INSERT INTO tblBin(fldMaxCapacity, fldInstallationDate, fldResturantID) VALUES (?,?,?)");
 
+            // cast java.util.Date -> java.sql.Date
+
             ps.setInt(1, bin.getMaxCapacity());
-            ps.setDate(2, (java.sql.Date)bin.getInstalationDate());
+            ps.setDate(2, new java.sql.Date(bin.getInstalationDate().getTime()));
             ps.setInt(3, bin.getResturentID());
 
-            ps.executeQuery();
+            ps.executeUpdate();
 
             DebugMessage.info(this, " Added a new bin to the database.");
 
