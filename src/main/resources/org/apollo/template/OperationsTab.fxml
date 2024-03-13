@@ -12,7 +12,7 @@
          <children>
             <HBox prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <VBox prefHeight="191.0" prefWidth="163.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
+                  <VBox prefHeight="191.0" prefWidth="163.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10 0 0 10;">
                      <HBox.margin>
                         <Insets bottom="10.0" left="20.0" />
                      </HBox.margin>
@@ -98,7 +98,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </VBox>
-                  <PieChart fx:id="OperationsPieChart" prefHeight="179.0" prefWidth="196.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
+                  <PieChart fx:id="OperationsPieChart" prefHeight="179.0" prefWidth="196.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 0 10 10 0;">
                      <HBox.margin>
                         <Insets bottom="10.0" right="15.0" />
                      </HBox.margin></PieChart>
@@ -210,7 +210,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <ListView fx:id="LVAllBins" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;" />
+                        <ListView fx:id="LVAllBins" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;" stylesheets="@css/Menu.css" />
                      </children>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="370.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
@@ -231,6 +231,10 @@
                            </VBox.margin>
                         </HBox>
                         <ChoiceBox fx:id="cbLocations" prefWidth="150.0" style="-fx-background-color: B4E0F8;" />
+                        <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#onActionBtnConfirm" style="-fx-background-color: B4E0F8;" text="Confirm">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin></Button>
                      </children></VBox>
                </children></HBox>
          </children>

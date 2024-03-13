@@ -97,7 +97,7 @@ public class BinDAODB implements BinDAO {
 
         try{
 
-            PreparedStatement ps = conn.prepareCall("SELECT * FROM tblBin WHERE fldBinID = ?");
+            PreparedStatement ps = conn.prepareCall("SELECT * FROM tblBin WHERE fldResturantID = ?");
 
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
