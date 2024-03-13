@@ -79,7 +79,7 @@ public class ResturentEditController implements Initializable {
 
             resturentDAO = new ResturenDAODB();
 
-            clearResturentBinRefferences();
+            //clearResturentBinRefferences();
 
             resturentDAO.update(selectedResturent.getResturentID(), newResturent);
 
