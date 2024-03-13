@@ -30,7 +30,7 @@ public class ViewLoader {
             return loader.load();
 
         } catch (IOException e) {
-            DebugMessage.error("ViewLoader","Error loading FXML view: " + fxmlFileName + e);
+            DebugMessage.error("ViewLoader","Error loading FXML view: " + fxmlFileName + e.getMessage());
             return null;
         }
     }

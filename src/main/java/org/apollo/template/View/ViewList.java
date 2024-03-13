@@ -1,16 +1,14 @@
 package org.apollo.template.View;
 
-import org.apollo.template.Controller.GameController;
-import org.apollo.template.Controller.HomeController;
-import org.apollo.template.Controller.MainController;
-import org.apollo.template.Controller.SettingsController;
+import org.apollo.template.Controller.*;
 
 public enum ViewList {
 
     MAIN("MainView.fxml", MainController.getInstance()),
     GAME("GameView.fxml", GameController.getInstance()),
     SETTINGS("SettingsView.fxml", SettingsController.getInstance()),
-    HOME("HomeView.fxml", HomeController.getInstance());
+    HOME("HomeView.fxml", HomeController.getInstance()),
+    STATISTIC("StatisticView.fxml", StatisticController.getInstance());
 
     private final String FXML_FILE_NAME;
     private final Object CONTROLLER;

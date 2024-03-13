@@ -33,8 +33,8 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    protected void onBtnSettings( ) {
-        borderPane.setCenter(loadView(ViewList.SETTINGS));
+    protected void onBtnStatistic( ) {
+        borderPane.setCenter(loadView(ViewList.STATISTIC));
     }
 
     @FXML
