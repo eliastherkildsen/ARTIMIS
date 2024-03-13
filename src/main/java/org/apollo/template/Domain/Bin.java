@@ -4,10 +4,18 @@ import java.util.Date;
 
 public class Bin {
 
-    private int binID, ResturentID, MaxCapacity;
+    private int binID,MaxCapacity;
+    private Integer ResturentID;
     private Date instalationDate;
 
     public Bin(int binID, int resturentID, int maxCapacity, Date instalationDate) {
+        this.binID = binID;
+        ResturentID = resturentID;
+        MaxCapacity = maxCapacity;
+        this.instalationDate = instalationDate;
+    }
+
+    public Bin(int binID, Integer resturentID, int maxCapacity, Date instalationDate) {
         this.binID = binID;
         ResturentID = resturentID;
         MaxCapacity = maxCapacity;
@@ -22,11 +30,11 @@ public class Bin {
         this.binID = binID;
     }
 
-    public int getResturentID() {
+    public Integer getResturentID() {
         return ResturentID;
     }
 
-    public void setResturentID(int resturentID) {
+    public void setResturentID(Integer resturentID) {
         ResturentID = resturentID;
     }
 

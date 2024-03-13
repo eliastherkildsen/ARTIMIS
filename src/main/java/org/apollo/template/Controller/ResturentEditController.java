@@ -16,9 +16,7 @@ import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.Service.Resturent.ResturenDAODB;
 import org.apollo.template.Service.Resturent.ResturentDAO;
 import org.apollo.template.View.ViewList;
-
 import java.net.URL;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -37,6 +35,7 @@ public class ResturentEditController implements Initializable {
     @FXML
     private ListView<Bin> lwAllBins, lwAssignedBins;
     private List<Bin> selectedBins = new ArrayList<>();
+    private List<Bin> resturentAssignedBinsInDB;
 
 
 
@@ -82,6 +81,8 @@ public class ResturentEditController implements Initializable {
             //clearResturentBinRefferences();
 
             resturentDAO.update(selectedResturent.getResturentID(), newResturent);
+
+            updateAssigned();
 
         }
 
@@ -190,29 +191,36 @@ public class ResturentEditController implements Initializable {
         if (selectedResturent == null) return;
 
         binDAO = new BinDAODB();
-        lwAssignedBins.getItems().addAll(binDAO.readAllFromResturentID(selectedResturent.getResturentID()));
+        resturentAssignedBinsInDB = binDAO.readAllFromResturentID(selectedResturent.getResturentID());
+        lwAssignedBins.getItems().addAll(resturentAssignedBinsInDB);
 
     }
 
 
     /**
-     * Method that clears all references a restaurant has to a bin.
-     * TODO: NEED HELP WITH THIS SQL SHIT STUFF.
-     * TODO: Create a method for deleting bins! 
-     *
+     * Method that comapirs the bins in the database, with the
+     * selected bins in the list view. removes all resturent refferences to bins
+     * witch is not in the listView of selected bins.
      *
      */
-    private void clearResturentBinRefferences(int resturentID){
+    private void updateAssigned() {
+        BinDAODB binDAODB = new BinDAODB();
 
-        binDAO = new BinDAODB();
-        List<Bin> binList = new ArrayList<>();
+        // Fetch all selected bins.
+        List<Bin> selectedBins = lwAssignedBins.getItems();
 
-        binList = binDAO.readAllFromResturentID(resturentID);
+        // Remove unassigned bins from the resturentAssignedBinsInDB list.
+        resturentAssignedBinsInDB.removeIf(bin -> selectedBins.contains(bin));
 
+        // Remove restaurant references from bins that are not assigned in the list view.
+        for (Bin bin : resturentAssignedBinsInDB) {
 
+            binDAODB.setResturentNull(bin.getBinID());
+
+        }
     }
 
 
-
+        // removes the bins refference to resturent if not assigned in the LW.
 
 }

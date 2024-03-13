@@ -190,4 +190,20 @@ public class BinDAODB implements BinDAO {
             DebugMessage.error(this, " in delete; An error occurred " + e.getMessage());
         }
     }
+
+    public void setResturentNull(int binID) {
+
+        try {
+            PreparedStatement ps = conn.prepareStatement("UPDATE tblBin SET fldResturantID = NULL WHERE fldbinID = ?;");
+            ps.setInt(1, binID);
+            ps.executeUpdate();
+            ps.close();
+
+            DebugMessage.info(this, "Sat restaurant id to null where binID: " + binID);
+
+        } catch (SQLException e) {
+            DebugMessage.error(this, "in setResturentNull; An error occurred! " + e.getMessage());
+        }
+
+    }
 }
