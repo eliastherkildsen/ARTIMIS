@@ -1,8 +1,9 @@
-package org.apollo.template.Controller;
+package org.apollo.template.Controller.Resturent;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import org.apollo.template.Controller.MainController;
 import org.apollo.template.Domain.Resturent;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.Service.Resturent.ResturenDAODB;
@@ -57,7 +58,10 @@ public class ResturentController implements Initializable {
             lwResturents.getItems().add(resturent);
         }
 
+    }
 
+    public void onBtnCreate(){
+        MainController.getInstance().changeView(ViewList.RESTURENT_CREATE);
     }
 
 }
