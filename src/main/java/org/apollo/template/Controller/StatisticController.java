@@ -17,7 +17,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import org.apollo.template.Domain.Bin;
 import org.apollo.template.Model.Records;
+import org.apollo.template.Service.Bin.BinDAO;
+import org.apollo.template.Service.Bin.BinDAODB;
 import org.apollo.template.Service.Debugger.DebugMessage;
 
 import java.net.URL;
@@ -47,11 +50,13 @@ public class StatisticController implements Initializable {
     private Button btnExport, btn_Confirm;
     @FXML
     private Label label_Min, label_Max, label_Average, label_empties, label_Min_Res, label_Max_Res, label_Average_Res;
-
+    @FXML
+    private ChoiceBox<Bin> cbBin;
     private StatisticDAO statisticDAO = new StatisticDAODB();
     private int binID = 1;
     private int daysToShow;
     private String wasteDesignation = "in grams";
+    private BinDAO binDAO;
 
 
 
@@ -73,6 +78,7 @@ public class StatisticController implements Initializable {
 
         choiseBoxSetVal();
         yesterdayBarChart();
+        populateBinCb();
         //weekBarChart();
         //monthBarChart();
         //yearBarChart();
@@ -82,6 +88,10 @@ public class StatisticController implements Initializable {
 
 
     public void onBtnConfirmClick(){
+
+        if (cbBin.getSelectionModel().getSelectedItem() == null) return;
+
+        binID = cbBin.getSelectionModel().getSelectedItem().getBinID();
 
         barChart.getData().clear();
 
@@ -405,6 +415,11 @@ public class StatisticController implements Initializable {
         yearBarChart();
     }
 
+    private void populateBinCb(){
+        binDAO = new BinDAODB();
+        cbBin.getItems().addAll(binDAO.readAll());
+
+    }
 
 
 }
