@@ -1,6 +1,5 @@
 package org.apollo.template.Controller;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,6 +10,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.apollo.template.Domain.Bin;
 import org.apollo.template.Domain.BinStatus;
 import org.apollo.template.Domain.Resturent;
@@ -19,13 +20,18 @@ import org.apollo.template.Service.Bin.BinDAODB;
 import org.apollo.template.Service.BinStatus.BinStatusDAOExtend;
 import org.apollo.template.Service.BinStatus.BinStatusDBSearch;
 import org.apollo.template.Service.BinStatus.BinStatusUtil;
+import org.apollo.template.Service.CSVParser.CSVParserDAO;
+import org.apollo.template.Service.CSVParser.CSVParserDAODB;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.Service.Resturent.ResturenDAODB;
 import org.apollo.template.Service.Resturent.ResturentDAO;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,6 +41,7 @@ import java.util.ResourceBundle;
 public class OperationsTabController implements Initializable {
 
     private static OperationsTabController INSTANCE = new OperationsTabController();
+
 
     @FXML
     private BorderPane borderPane;
@@ -53,6 +60,44 @@ public class OperationsTabController implements Initializable {
     private List<Bin> listOfFoundBins;
     private String noOfBins;
     private BinDAO binDAO = new BinDAODB();
+    private CSVParserDAO parserDAO = new CSVParserDAODB();
+    private Stage stage;
+
+    @FXML
+        public void importCSVAction() throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getInitialDirectory();
+        FileChooser.ExtensionFilter csvFilter = new FileChooser.ExtensionFilter("Microsoft Excel Comma Separated Files (*.csv)", "*.csv");
+        fileChooser.getExtensionFilters().add(csvFilter);
+        File selectedFile = fileChooser.showOpenDialog(stage);
+        if (selectedFile != null) {
+            try {
+                System.out.println("Selected File: " + selectedFile.getAbsolutePath());
+                List<String> contentLines = Files.readAllLines(selectedFile.toPath());
+
+                if (!contentLines.isEmpty()) {
+                    contentLines.remove(0);
+                }
+
+                List<String[]> data = new ArrayList<>();
+                for (String line : contentLines) {
+                    String[] fields = line.split(",");
+
+                    String date = convertToSQLDateTime(fields[1]);
+                    String weight = fields[2];
+                    String raspberryID = fields[3];
+                    data.add(new String[]{date, weight, raspberryID});
+                }
+
+                parserDAO.insert(data);
+            } catch (IOException | SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    private String convertToSQLDateTime(String dateTimeString) {
+        return dateTimeString.replace('/', '-');
+    }
 
     private OperationsTabController(){
         if (INSTANCE == null){
