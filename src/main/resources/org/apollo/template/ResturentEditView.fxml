@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="747.0" stylesheets="@css/Resturent.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="747.0" stylesheets="@css/Resturent.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="175.0" layoutY="70.0" maxWidth="400.0" minWidth="400.0" prefHeight="540.0" prefWidth="747.0" spacing="20.0" style="-fx-background-color: #ededed; -fx-background-radius: 10;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="50.0">
          <children>
@@ -16,19 +16,28 @@
             </Text>
             <HBox alignment="TOP_CENTER" prefHeight="27.0" prefWidth="747.0" spacing="40.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="38.0" text="Name" />
+                  <Label prefHeight="17.0" prefWidth="38.0" text="Name">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding></Label>
                   <TextField fx:id="tfName" />
                </children>
             </HBox>
-            <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="62.0" prefHeight="27.0" prefWidth="747.0" spacing="40.0">
+            <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="62.0" prefHeight="27.0" prefWidth="747.0" spacing="42.0">
                <children>
-                  <Label text="Adress" />
+                  <Label text="Adress">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding></Label>
                   <TextField fx:id="tfAdress" />
                </children>
             </HBox>
             <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="109.0" prefHeight="27.0" prefWidth="747.0" spacing="40.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="37.0" text="City" />
+                  <Label prefHeight="17.0" prefWidth="37.0" text="City">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding></Label>
                   <ChoiceBox fx:id="cbCity" prefWidth="150.0" />
                </children>
             </HBox>

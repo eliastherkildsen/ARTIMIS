@@ -52,7 +52,7 @@ public class OperationsTabController implements Initializable {
     @FXML
     private Button btnConfirm, btnViewAll;
     @FXML
-    private Label lbTotal, lbTotalCap, lbWeeklyWeight, lbLifeTimeWaste;
+    private Label lbTotal, lbTotalCap, lbWeeklyWeight, lbLifeTimeWaste, lbCurrentLevel;
     @FXML
     private PieChart OperationsPieChart;
 
@@ -159,9 +159,14 @@ public class OperationsTabController implements Initializable {
         noOfBins = String.valueOf(binIDList.size());
         lbTotal.setText(noOfBins);
 
-        lbTotalCap.setText((double)getTotalCapacity() / 1000 + "kg");
-        lbWeeklyWeight.setText(String.format("%.2fkg",((double) getWeeklyWaste(listOfFoundBins) / 1000)));
-        lbLifeTimeWaste.setText(String.format("%.2fkg",((double) BinStatusUtil.getLifeTimeWaste(listOfFoundBins) / 1000)));
+        double totalCap = (double) getTotalCapacity() / 1000;
+        lbTotalCap.setText(String.format("%.1f g",totalCap));
+
+        lbWeeklyWeight.setText(String.format("%.1f g",((double) getWeeklyWaste(listOfFoundBins) / 1000)));
+        lbLifeTimeWaste.setText(String.format("%.1f g",((double) BinStatusUtil.getLifeTimeWaste(listOfFoundBins) / 1000)));
+
+        // only for the view and alignment
+        lbCurrentLevel.setText(String.format("%.1f g", 0.0));
 
     }
 
@@ -189,7 +194,7 @@ public class OperationsTabController implements Initializable {
 
         listOfFoundBins = binDAO.readAll();
         listOfFoundBins.forEach(b -> binIDList.add(b.getBinID()));
-        lbWeeklyWeight.setText(String.format("%.2fkg",((double) getWeeklyWaste(listOfFoundBins) / 1000)));
+        lbWeeklyWeight.setText(String.format("%.1f g",((double) getWeeklyWaste(listOfFoundBins) / 1000)));
         for (Bin b : listOfFoundBins){
             LVAllBins.getItems().add(b.toString());
         }
@@ -239,9 +244,10 @@ public class OperationsTabController implements Initializable {
         populatePieChart();
         populateBinLWWithALl();
 
-        lbTotalCap.setText((double)getTotalCapacity() / 1000 + "kg");
+        double totalCap = (double) getTotalCapacity() / 1000;
 
-        lbLifeTimeWaste.setText(String.format("%.2fkg",((double) BinStatusUtil.getLifeTimeWaste(listOfFoundBins) / 1000)));
+        lbTotalCap.setText(String.format("%.1f g",totalCap));
+        lbLifeTimeWaste.setText(String.format("%.1f g",((double) BinStatusUtil.getLifeTimeWaste(listOfFoundBins) / 1000)));
 
     }
 

@@ -16,7 +16,10 @@
             </Text>
             <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="62.0" prefHeight="27.0" prefWidth="747.0" spacing="38.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="87.0" text="Installation date" />
+                  <Label prefHeight="17.0" prefWidth="87.0" text="Installation date">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding></Label>
                   <DatePicker fx:id="dpInstalationDate" prefHeight="26.0" prefWidth="175.0" />
                </children>
             </HBox>
@@ -27,7 +30,7 @@
                         <Insets />
                      </HBox.margin>
                      <padding>
-                        <Insets left="-25.0" />
+                        <Insets left="-25.0" top="5.0" />
                      </padding></Label>
                   <ChoiceBox fx:id="cbResturent" prefWidth="150.0" />
                </children>
@@ -36,7 +39,7 @@
                <children>
                   <Label prefHeight="17.0" prefWidth="50.0" text="Rasp ID">
                      <padding>
-                        <Insets left="-25.0" />
+                        <Insets left="-25.0" top="5.0" />
                      </padding></Label>
                   <ChoiceBox fx:id="cbRaspID" prefWidth="150.0" />
                </children>
@@ -45,7 +48,7 @@
                <children>
                   <Label prefHeight="17.0" prefWidth="74.0" text="Max capacity">
                      <padding>
-                        <Insets left="-26.0" />
+                        <Insets left="-26.0" top="5.0" />
                      </padding></Label>
                   <TextField fx:id="tfMaxCapacity" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: white;" />
                </children>

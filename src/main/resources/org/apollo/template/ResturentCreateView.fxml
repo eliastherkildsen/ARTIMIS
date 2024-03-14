@@ -16,13 +16,19 @@
             </Text>
             <HBox alignment="TOP_CENTER" prefHeight="27.0" prefWidth="747.0" spacing="40.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="59.0" text="Name" />
+                  <Label prefHeight="17.0" prefWidth="59.0" text="Name">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding></Label>
                   <TextField fx:id="tfName" />
                </children>
             </HBox>
             <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="62.0" prefHeight="27.0" prefWidth="747.0" spacing="40.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="57.0" text="Adress" />
+                  <Label prefHeight="17.0" prefWidth="57.0" text="Adress">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding></Label>
                   <TextField fx:id="tfAdress" prefWidth="150.0" />
                </children>
             </HBox>
@@ -31,7 +37,10 @@
                   <Label prefHeight="17.0" prefWidth="53.0" text="City">
                      <HBox.margin>
                         <Insets left="-8.0" />
-                     </HBox.margin></Label>
+                     </HBox.margin>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding></Label>
                   <ChoiceBox fx:id="cbCity" prefWidth="150.0">
                      <HBox.margin>
                         <Insets />
@@ -46,7 +55,10 @@
                   <Label prefHeight="17.0" prefWidth="50.0" text="Rasp ID">
                      <HBox.margin>
                         <Insets left="-8.0" />
-                     </HBox.margin></Label>
+                     </HBox.margin>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding></Label>
                   <ChoiceBox fx:id="cbCity1" prefWidth="150.0" />
                </children>
                <padding>

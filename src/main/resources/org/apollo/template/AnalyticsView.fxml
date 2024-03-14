@@ -33,6 +33,9 @@
                                  <font>
                                     <Font size="13.0" />
                                  </font>
+                                 <padding>
+                                    <Insets top="2.0" />
+                                 </padding>
                               </Label>
                               <DatePicker fx:id="dpStartDate" />
                            </children>
@@ -46,16 +49,22 @@
                                  <font>
                                     <Font size="13.0" />
                                  </font>
+                                 <padding>
+                                    <Insets top="2.0" />
+                                 </padding>
                               </Label>
                               <DatePicker fx:id="dpEndDate" />
                            </children>
                         </HBox>
                         <HBox layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label prefHeight="20.0" prefWidth="89.0" text="Resturent">
+                              <Label prefHeight="20.0" prefWidth="89.0" text="Restaurant">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
+                                 <padding>
+                                    <Insets top="2.0" />
+                                 </padding>
                               </Label>
                               <ChoiceBox fx:id="cbResturent" prefHeight="25.0" prefWidth="106.0" />
                               <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#onBtnAdd" prefHeight="25.0" prefWidth="45.0" text="+" />
@@ -68,6 +77,9 @@
                                  <font>
                                     <Font size="13.0" />
                                  </font>
+                                 <padding>
+                                    <Insets top="2.0" />
+                                 </padding>
                               </Label>
                               <ChoiceBox prefHeight="25.0" prefWidth="98.0" />
                            </children>
@@ -75,43 +87,25 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </HBox>
-                        <HBox layoutX="10.0" layoutY="97.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <Label prefHeight="20.0" prefWidth="89.0" text="Median line">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                              </Label>
-                              <RadioButton mnemonicParsing="false" text="RadioButton" />
-                           </children>
-                        </HBox>
-                        <HBox layoutX="10.0" layoutY="126.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <Label prefHeight="20.0" prefWidth="142.0" text="Global media avg">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
                         <HBox layoutX="10.0" layoutY="155.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="20.0" prefWidth="115.0" text="Global min">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
+                                 <padding>
+                                    <Insets bottom="2.0" />
+                                 </padding>
                               </Label>
-                              <Label fx:id="tfGlobalMin" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
+                              <Label fx:id="tfGlobalMin" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 g" textAlignment="RIGHT">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
                               </Label>
                            </children>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
                         </HBox>
                         <HBox layoutX="10.0" layoutY="184.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
@@ -119,8 +113,11 @@
                                  <font>
                                     <Font size="13.0" />
                                  </font>
+                                 <padding>
+                                    <Insets bottom="2.0" />
+                                 </padding>
                               </Label>
-                              <Label fx:id="tfGlobalMax" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
+                              <Label fx:id="tfGlobalMax" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 g" textAlignment="RIGHT">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
@@ -129,12 +126,15 @@
                         </HBox>
                         <HBox layoutX="10.0" layoutY="213.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label prefHeight="20.0" prefWidth="115.0" text="Global wast day">
+                              <Label prefHeight="20.0" prefWidth="115.0" text="Global waste day">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
+                                 <padding>
+                                    <Insets bottom="2.0" />
+                                 </padding>
                               </Label>
-                              <Label fx:id="tfGlobalWastDay" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
+                              <Label fx:id="tfGlobalWastDay" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 g" textAlignment="RIGHT">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
@@ -147,8 +147,11 @@
                                  <font>
                                     <Font size="13.0" />
                                  </font>
+                                 <padding>
+                                    <Insets bottom="2.0" />
+                                 </padding>
                               </Label>
-                              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
+                              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 g" textAlignment="RIGHT">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
