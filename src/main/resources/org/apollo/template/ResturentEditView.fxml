@@ -9,7 +9,7 @@
    <children>
       <VBox alignment="TOP_CENTER" layoutX="175.0" layoutY="70.0" maxWidth="400.0" minWidth="400.0" prefHeight="540.0" prefWidth="747.0" spacing="20.0" style="-fx-background-color: #ededed; -fx-background-radius: 10;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="50.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Resturent" wrappingWidth="101.4140625">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Restaurants" wrappingWidth="127.4140625">
                <font>
                   <Font size="24.0" />
                </font>

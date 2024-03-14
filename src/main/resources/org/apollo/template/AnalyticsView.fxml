@@ -84,7 +84,7 @@
                         </HBox>
                         <HBox layoutX="10.0" layoutY="126.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label prefHeight="20.0" prefWidth="115.0" text="Global media avg">
+                              <Label prefHeight="20.0" prefWidth="142.0" text="Global media avg">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
