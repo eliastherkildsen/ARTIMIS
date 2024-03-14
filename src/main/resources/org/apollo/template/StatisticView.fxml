@@ -7,7 +7,7 @@
 <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <VBox fx:id="scene" prefHeight="400.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-         <BarChart fx:id="barChart" prefHeight="404.0" prefWidth="606.0">
+         <BarChart fx:id="barChart" animated="false" prefHeight="404.0" prefWidth="606.0">
            <xAxis>
              <CategoryAxis side="BOTTOM" fx:id="xAxis" />
            </xAxis>
@@ -16,12 +16,13 @@
            </yAxis>
          </BarChart>
       </children></VBox>
-   <Button fx:id="btnExport" layoutX="548.0" layoutY="513.0" mnemonicParsing="false" text="Export" AnchorPane.bottomAnchor="-138.60000000000002" AnchorPane.rightAnchor="1.6000000000000227" />
-    <ChoiceBox fx:id="choiceBox" layoutX="449.0" layoutY="411.0" prefWidth="150.0" />
-   <Label fx:id="label_Min" layoutY="415.0" text="Min (g)" />
-   <TextField fx:id="textField_Max" layoutX="71.0" layoutY="445.0" prefHeight="26.0" prefWidth="98.0" />
-   <TextField fx:id="textField_Min" layoutX="71.0" layoutY="410.0" prefHeight="26.0" prefWidth="97.0" />
-   <TextField fx:id="textField_Average" layoutX="71.0" layoutY="479.0" prefHeight="26.0" prefWidth="98.0" />
-   <Label fx:id="label_Max" layoutY="450.0" text="Max (g)" />
-   <Label fx:id="label_Average" layoutY="484.0" text="Average (g)" />
+   <Button fx:id="btnExport" layoutX="549.0" layoutY="513.0" mnemonicParsing="false" text="Export" AnchorPane.bottomAnchor="-138.60000000000002" AnchorPane.rightAnchor="0.6000000000000227" />
+    <ChoiceBox fx:id="choiceBox" layoutX="450.0" layoutY="411.0" prefWidth="150.0" />
+   <Label fx:id="label_Min" layoutY="415.0" text="Min grams" />
+   <Label fx:id="label_Max" layoutY="450.0" text="Max grams" />
+   <Label fx:id="label_Average" layoutY="484.0" text="Average grams" />
+   <Label fx:id="label_Min_Res" layoutX="96.0" layoutY="415.0" />
+   <Label fx:id="label_Max_Res" layoutX="97.0" layoutY="450.0" />
+   <Label fx:id="label_Average_Res" layoutX="97.0" layoutY="484.0" />
+   <Button fx:id="btn_Confirm" layoutX="541.0" layoutY="450.0" mnemonicParsing="false" onAction="#onBtnConfirmClick" text="Confirm" />
 </AnchorPane>

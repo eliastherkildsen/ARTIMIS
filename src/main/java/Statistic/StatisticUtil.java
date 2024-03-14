@@ -16,6 +16,72 @@ public class StatisticUtil {
 
 
 
+
+    public static List<String> timeDay(List<Records> records){
+
+        ArrayList<String> datesChosen = new ArrayList<>();
+        String currentTime = "";
+
+
+        for (Records times : records){
+
+            // gets the date and time from the record
+            String dateTime = times.getDateTime();
+
+            // splits the date and time using the delimiter
+            String[] splittedDateTime = dateTime.split(String.valueOf(DELIMITER));
+            // time part
+            String timePart = splittedDateTime[1];    // last part
+
+            if (!timePart.equals(currentTime)){
+                datesChosen.add(timePart);
+                currentTime = timePart;
+            }
+        }
+        return datesChosen;
+    }
+
+
+    public static List<Integer> timeWeights(List<Records> records) {
+
+        ArrayList<Integer> chosenWeights = new ArrayList<>();
+        String currentTime = "";
+        int sumTime = 0;
+
+
+        for (Records weight : records) {
+
+            // gets the date and time from the record
+            String dateTime = weight.getDateTime();
+            // splits the date and time using the delimiter
+            String[] splittedDateTime = dateTime.split(String.valueOf(DELIMITER));
+
+            String timePart = splittedDateTime[1];
+
+            // if new time than previous time
+            if (!timePart.equals(currentTime)) {
+                if (!currentTime.isEmpty()) {
+                    chosenWeights.add(weight.getWeight());
+                }
+                // start weight for the new date
+                sumTime = weight.getWeight();
+                // updates current date
+                currentTime = timePart;
+                cntEmptyings = 1;
+            }
+
+            if (weight.getRecordID() == records.getLast().getRecordID() && cntEmptyings == 1){
+                chosenWeights.add(sumTime);
+            }
+        }
+
+        return chosenWeights;
+    }
+
+
+
+
+
     public static List<String> datesPeriod(List<Records> records){
 
         ArrayList<String> datesChosen = new ArrayList<>();
@@ -32,6 +98,7 @@ public class StatisticUtil {
             String datePart = splittedDateTime[0];      // first part
             //String timePart = splittedDateTime[1];    // last part
 
+            // new date
             if (!datePart.equals(currentDate)){
                 datesChosen.add(datePart);
                 currentDate = datePart;
@@ -76,9 +143,7 @@ public class StatisticUtil {
                     cntEmptyings++;
                 }
 
-
-
-                if (weight.getRecordID() == records.getLast().getRecordID() && cntEmptyings == 1){
+                if (weight.getRecordID() == records.getLast().getRecordID() && sumDate > 0){
                     chosenWeights.add(sumDate);
                 }
 

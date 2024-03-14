@@ -46,13 +46,12 @@ public class StatisticController implements Initializable {
     @FXML
     private Button btnExport;
     @FXML
-    private Label label_Min, label_Max, label_Average, label_empties;
-    @FXML
-    private TextField textField_Min, textField_Max, textField_Average;
+    private Label label_Min, label_Max, label_Average, label_empties, label_Min_Res, label_Max_Res, label_Average_Res;
 
     private StatisticDAO statisticDAO = new StatisticDAODB();
 
     private int daysToShow;
+    private String wasteDesignation = "in grams";
 
 
 
@@ -73,14 +72,90 @@ public class StatisticController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         choiseBoxSetVal();
-        weekBarChart();
+        yesterdayBarChart();
+        //weekBarChart();
         //monthBarChart();
         //yearBarChart();
 
+        root.getChildren().add(barChart);
+    }
+
+
+    @FXML
+    public void onBtnConfirmClick(){
+
+        barChart.getData().clear();
+
+        int indexChosen = choiceBox.getSelectionModel().getSelectedIndex();
+
+        switch (indexChosen){
+
+            case 0:
+                handleYesterdaySelection();
+                break;
+
+            case 1:
+                handleLastWeekSelection();
+                break;
+
+            case 2:
+                handleLastMonthSelection();
+                break;
+
+            case 3:
+                handleLastYearSelection();
+                break;
+        }
     }
 
 
 
+
+    private void yesterdayBarChart() {
+        daysToShow = 1;
+        String yesterdayDate = dateYesterday();
+
+
+        try {
+            // label x-axis
+            barChart.getXAxis().setLabel("Time");
+            // label y-axis
+            barChart.getYAxis().setLabel("Food waste ");
+            // title of graph
+            barChart.setTitle(String.format("Food waste yesterday\n\t%s", yesterdayDate));
+
+
+            ObservableList<XYChart.Series<String, Number>> chartData = FXCollections.observableArrayList();
+
+            XYChart.Series<String, Number> seriesYesterday = new XYChart.Series<>();
+            seriesYesterday.setName("Waste " + wasteDesignation);
+
+
+            List<Records> chosenRecords = statisticDAO.readRecords(daysToShow);
+
+            List<String> time = new ArrayList<>(StatisticUtil.timeDay(chosenRecords));
+            List<Integer> weight = new ArrayList<>(StatisticUtil.timeWeights(chosenRecords));
+
+
+            for (int i = 0; i < time.size(); i++) {
+                seriesYesterday.getData().add(new XYChart.Data<>(time.get(i), weight.get(i)));
+            }
+
+            chartData.add(seriesYesterday);
+            barChart.setData(chartData);
+
+            setLabelStatistic(weight);
+
+
+        }catch (Exception e){
+            System.out.println("[yesterday barChart] Error");
+        }
+    }
+
+    private String dateYesterday() {
+        LocalDate date = LocalDate.now().minusDays(1);
+        return String.valueOf(date);
+    }
 
 
     private void weekBarChart() {
@@ -98,7 +173,7 @@ public class StatisticController implements Initializable {
             ObservableList<XYChart.Series<String, Number>> chartData = FXCollections.observableArrayList();
 
             XYChart.Series<String, Number> seriesWeek = new XYChart.Series<>();
-            seriesWeek.setName("Waste");
+            seriesWeek.setName("Waste " + wasteDesignation);
 
 
             List<Records> chosenRecords = statisticDAO.readRecords(daysToShow);
@@ -109,17 +184,20 @@ public class StatisticController implements Initializable {
 
             for (int i = 0; i < date.size(); i++) {
                 seriesWeek.getData().add(new XYChart.Data<>(date.get(i), weight.get(i)));
+                //System.out.println(date.get(i));
+                //System.out.println(weight.get(i));
             }
+
+
 
             chartData.add(seriesWeek);
             barChart.setData(chartData);
-            root.getChildren().add(barChart);
 
-            setTextfieldStatistic(weight);
+            setLabelStatistic(weight);
 
 
         }catch (Exception e){
-            System.out.println("Error");
+            System.out.println("[week barChart] Error");
         }
     }
 
@@ -128,81 +206,84 @@ public class StatisticController implements Initializable {
     private void monthBarChart() {
         daysToShow = 31;
 
-        // label x-axis
-        barChart.getXAxis().setLabel("Date");
-        // label y-axis
-        barChart.getYAxis().setLabel("Total food waste per day");
-        // title of graph
-        barChart.setTitle("Food waste for the last month");
+        try{
+            // label x-axis
+            barChart.getXAxis().setLabel("Date");
+            // label y-axis
+            barChart.getYAxis().setLabel("Total food waste per day");
+            // title of graph
+            barChart.setTitle("Food waste for the last month");
 
 
-        ObservableList<XYChart.Series<String,Number>> chartData = FXCollections.observableArrayList();
+            ObservableList<XYChart.Series<String,Number>> chartData = FXCollections.observableArrayList();
 
-        XYChart.Series<String, Number> seriesMonth = new XYChart.Series<>();
-        seriesMonth.setName("Waste");
-
-
-        List<Records> chosenRecords = statisticDAO.readRecords(daysToShow);
-
-        List<String> date = new ArrayList<>(StatisticUtil.datesPeriod(chosenRecords));
-        List<Integer> weight = new ArrayList<>(StatisticUtil.weightsPerDayPeriod(chosenRecords));
+            XYChart.Series<String, Number> seriesMonth = new XYChart.Series<>();
+            seriesMonth.setName("Waste " + wasteDesignation);
 
 
-        if (date.size() < daysToShow){
+            List<Records> chosenRecords = statisticDAO.readRecords(daysToShow);
 
-            List<String> datesPeriod = new ArrayList<>();
-            List<Integer> weightsPeriod = new ArrayList<>(daysToShow);
+            List<String> date = new ArrayList<>(StatisticUtil.datesPeriod(chosenRecords));
+            List<Integer> weight = new ArrayList<>(StatisticUtil.weightsPerDayPeriod(chosenRecords));
 
-            LocalDate currentDate = LocalDate.now();
 
-            // creates a List with the dates for the last month represent
-            for (int i = 1; i <= daysToShow; i++){
+            if (date.size() < daysToShow){
 
-                LocalDate newDate = currentDate.minusDays(i);
-                // parse to String
-                String dateToAdd = String.valueOf(Date.valueOf(newDate));
-                datesPeriod.add(dateToAdd);
+                List<String> datesPeriod = new ArrayList<>();
+                List<Integer> weightsPeriod = new ArrayList<>(daysToShow);
+
+                LocalDate currentDate = LocalDate.now();
+
+                // creates a List with the dates for the last month represent
+                for (int i = 1; i <= daysToShow; i++){
+
+                    LocalDate newDate = currentDate.minusDays(i);
+                    // parse to String
+                    String dateToAdd = String.valueOf(Date.valueOf(newDate));
+                    datesPeriod.add(dateToAdd);
             }
 
-            // reversing the order to correctly populate the x-axis
-            Collections.reverse(datesPeriod);
+                // reversing the order to correctly populate the x-axis
+                Collections.reverse(datesPeriod);
 
 
-            // creates a List with the weigths from the DB represent and "0" if no data represent the former date
-            int j = 0;
+                // creates a List with the weigths from the DB represent and "0" if no data represent the former date
+                int j = 0;
 
-            for (int i = 0; i < datesPeriod.size(); i++) {
+                for (int i = 0; i < datesPeriod.size(); i++) {
 
-                if (i < datesPeriod.size() - weight.size()) {
-                    weightsPeriod.add(0);
+                    if (i < datesPeriod.size() - weight.size()) {
+                        weightsPeriod.add(0);
+                    }
+                    else {
+                        weightsPeriod.add(weight.get(j));
+                        j++;
+                    }
                 }
-                else {
-                    weightsPeriod.add(weight.get(j));
-                    j++;
+
+
+                for (int i = 0; i < datesPeriod.size(); i++) {
+
+                    seriesMonth.getData().add(new XYChart.Data<>(datesPeriod.get(i), weightsPeriod.get(i)));
                 }
+                setLabelStatistic(weightsPeriod);
             }
 
 
-            for (int i = 0; i < datesPeriod.size(); i++) {
+            else {
+                for (int i = 0; i < date.size(); i++) {
+                    seriesMonth.getData().add(new XYChart.Data<>(date.get(i), weight.get(i)));
+                }
 
-                seriesMonth.getData().add(new XYChart.Data<>(datesPeriod.get(i), weightsPeriod.get(i)));
+                setLabelStatistic(weight);
             }
-            setTextfieldStatistic(weightsPeriod);
+
+            chartData.add(seriesMonth);
+            barChart.setData(chartData);
+
+        }catch (Exception e){
+            System.out.println("[month barChart] Error");
         }
-
-
-        else {
-            for (int i = 0; i < date.size(); i++) {
-                seriesMonth.getData().add(new XYChart.Data<>(date.get(i), weight.get(i)));
-            }
-
-            setTextfieldStatistic(weight);
-        }
-
-        chartData.add(seriesMonth);
-        barChart.setData(chartData);
-        root.getChildren().add(barChart);
-
     }
 
 
@@ -211,95 +292,93 @@ public class StatisticController implements Initializable {
     private void yearBarChart() {
         daysToShow = 365;
 
-        // label x-axis
-        barChart.getXAxis().setLabel("Month");
-        // label y-axis
-        barChart.getYAxis().setLabel("Total food waste per month");
-        // title of graph
-        barChart.setTitle("Food waste for the last year");
+        try {
+            // label x-axis
+            barChart.getXAxis().setLabel("Month");
+            // label y-axis
+            barChart.getYAxis().setLabel("Total food waste per month");
+            // title of graph
+            barChart.setTitle("Food waste for the last year");
 
 
-        ObservableList<XYChart.Series<String, Number>> chartData = FXCollections.observableArrayList();
+            ObservableList<XYChart.Series<String, Number>> chartData = FXCollections.observableArrayList();
 
-        XYChart.Series<String, Number> seriesYear = new XYChart.Series<>();
-        seriesYear.setName("Waste");
-
-
-        List<Records> chosenRecords = statisticDAO.readRecords(daysToShow);
-
-        List<String> month = new ArrayList<>(StatisticUtil.prev12MonthsByName());
-        List<Integer> weight = new ArrayList<>(StatisticUtil.weightsPerMonth(chosenRecords));
+            XYChart.Series<String, Number> seriesYear = new XYChart.Series<>();
+            seriesYear.setName("Waste " + wasteDesignation);
 
 
-        if (weight.size() < month.size()) {
-            List<Integer> weightPerMonth = new ArrayList<>(month.size());
+            List<Records> chosenRecords = statisticDAO.readRecords(daysToShow);
 
-            int j = 0;
+            List<String> month = new ArrayList<>(StatisticUtil.prev12MonthsByName());
+            List<Integer> weight = new ArrayList<>(StatisticUtil.weightsPerMonth(chosenRecords));
 
-            for (int i = 0; i < month.size(); i++) {
-                if (i < (month.size() - weight.size())) {
-                    weightPerMonth.add(0);
-                } else {
-                    weightPerMonth.add(weight.get(j));
-                    j++;
+
+            if (weight.size() < month.size()) {
+                List<Integer> weightPerMonth = new ArrayList<>(month.size());
+
+                int j = 0;
+
+                for (int i = 0; i < month.size(); i++) {
+                    if (i < (month.size() - weight.size())) {
+                        weightPerMonth.add(0);
+                    } else {
+                        weightPerMonth.add(weight.get(j));
+                        j++;
+                    }
                 }
+
+                for (int i = 0; i < month.size(); i++) {
+
+                    seriesYear.getData().add(new XYChart.Data<>(month.get(i), weightPerMonth.get(i)));
+                }
+
+                setLabelStatistic(weightPerMonth);
+            } else {
+
+                for (int i = 0; i < month.size(); i++) {
+                    seriesYear.getData().add(new XYChart.Data<>(month.get(i), weight.get(i)));
+                }
+
+                setLabelStatistic(weight);
+
             }
-
-            for (int i = 0; i < month.size(); i++) {
-
-                seriesYear.getData().add(new XYChart.Data<>(month.get(i), weightPerMonth.get(i)));
-            }
-
-            setTextfieldStatistic(weightPerMonth);
-        }
-
-        else {
-
-            for (int i = 0; i < month.size(); i++) {
-                seriesYear.getData().add(new XYChart.Data<>(month.get(i), weight.get(i)));
-            }
-
-            setTextfieldStatistic(weight);
-
-        }
             chartData.add(seriesYear);
             barChart.setData(chartData);
-            root.getChildren().add(barChart);
+
+        }catch (Exception e){
+            System.out.println("[year barChart] Error");
+        }
     }
 
 
-    private void setTextfieldStatistic(List<Integer> weight) {
+    private void setLabelStatistic(List<Integer> weight) {
 
         int minVal = StatisticUtil.minWeigth(weight);
         int maxVal = StatisticUtil.maxWeigth(weight);
         double average = StatisticUtil.averageWeight(weight);
 
-        textField_Min.setText(String.valueOf(minVal));
-        textField_Max.setText(String.valueOf(maxVal));
-        textField_Average.setText(String.valueOf(String.format("%.2f",average)));
+        label_Min_Res.setText(String.valueOf(minVal));
+        label_Max_Res.setText(String.valueOf(maxVal));
+        label_Average_Res.setText(String.valueOf(String.format("%.2f",average)));
     }
 
 
 
     private void choiseBoxSetVal(){
 
-        choiceBox.getItems().addAll("Last 7 days", "Last month", "Last year");
-        choiceBox.setValue("Last 7 days");
-    }
-
-    private void OnMousePressed() {
-
-        if (choiceBox.getValue().equals("Last month")) {
-            handleLastMonthSelection();
-        } else if (choiceBox.getValue().equals("Last week")) {
-            handleLastWeekSelection();
-        } else if (choiceBox.getValue().equals("Last year")) {
-            handleLastYearSelection();
-        }
-
+        choiceBox.getItems().addAll("Yesterday", "Last 7 days", "Last month", "Last year");
+        choiceBox.setValue("Yesterday");
     }
 
 
+
+    private void handleYesterdaySelection() {
+        // reset count of emptyings
+        StatisticUtil.cntEmptyings = 1;
+
+        // load week barChart
+        yesterdayBarChart();
+    }
 
     private void handleLastWeekSelection() {
         // reset count of emptyings
