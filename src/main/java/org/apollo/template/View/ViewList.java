@@ -11,7 +11,7 @@ public enum ViewList {
     RESTURENT("ResturentView.fxml", ResturentController.getInstance()),
     RESTURENT_EDIT("ResturentEditView.fxml", ResturentEditController.getInstance()),
     RESTURENT_CREATE("ResturentCreateView.fxml", ResturentCreateController.getInstance()),
-    STATISTIC("StatisticView.fxml", SettingsController.getInstance()),
+    STATISTIC("StatisticView.fxml", StatisticController.getInstance()),
     HOME("HomeView.fxml", HomeController.getInstance()),
     OPERATION("OperationsTab.fxml", OperationsTabController.getInstance()),
     LOGIN("LoginView.fxml", LoginController.getInstance()),
