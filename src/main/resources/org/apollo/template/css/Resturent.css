@@ -1,0 +1,70 @@
+.button {
+
+    -fx-background-color: B4D0F8;
+    -fx-background-radius: 0;
+
+    -fx-font-size: 12px;
+    -fx-text-fill: #000000;
+
+}
+
+.button:hover {
+    -fx-border-width: 0px 0px 3px 0px;
+
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.anchor-pane {
+
+    -fx-background-color: #769be1;
+}
+
+.list-view {
+    -fx-font-family: "Times New Roman";
+    -fx-background-color: #769be1;
+    -fx-background-radius: 10;
+
+}
+
+.list-view .cell {
+    -fx-background-color: #769be1;
+    -fx-text-fill: white;
+
+}
+
+.list-view .cell:hover {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: black;
+}
+
+.list-view:focused .list-cell:filled:selected {
+    /* 3: (This is more specific and therefore overrides the above)*/
+    -fx-background-color: #ffffff;
+    -fx-text-fill: black;
+}
+
+.text-field{
+    -fx-text-fill: WHITE;
+    -fx-background-color: #769be1;
+}
+
+.choice-box{
+    -fx-text-fill: white;
+    -fx-background-color: #769be1;
+}
+
+.choice-box .label {
+    -fx-text-fill: white; /* Set the text color */
+}
+
+.choice-box .context-menu{
+    -fx-background-color: #769be1;
+}
+
+
+
+
+
+

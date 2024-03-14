@@ -7,6 +7,7 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="913.0" stylesheets="@css/Analytics.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="913.0" stylesheets="@css/Resturent.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="746.0" prefWidth="906.0">
          <children>
@@ -17,7 +18,7 @@
             </Label>
             <HBox prefHeight="587.0" prefWidth="1041.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
                <children>
-                  <LineChart fx:id="lcMain" animated="false" prefHeight="451.0" prefWidth="742.0" HBox.hgrow="ALWAYS">
+                  <LineChart fx:id="lcMain" prefHeight="451.0" prefWidth="742.0" HBox.hgrow="ALWAYS">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>

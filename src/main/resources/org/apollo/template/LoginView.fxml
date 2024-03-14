@@ -2,11 +2,11 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane fx:id="anchorPane" prefHeight="497.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="usernameField" layoutX="231.0" layoutY="244.0" prefHeight="35.0" prefWidth="190.0" promptText="Username">
@@ -14,6 +14,11 @@
             <Font size="14.0" />
          </font>
       </TextField>
+      <PasswordField fx:id="passwordField" layoutX="231.0" layoutY="284.0" prefHeight="35.0" prefWidth="190.0" promptText="Password">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
       <Label layoutX="236.0" layoutY="121.0" text="FoodWaste" textFill="#25e422">
          <font>
             <Font size="36.0" />
@@ -24,10 +29,5 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <PasswordField fx:id="passwordField" layoutX="230.0" layoutY="286.0" prefHeight="35.0" prefWidth="190.0" promptText="Password">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </PasswordField>
    </children>
 </AnchorPane>

@@ -284,16 +284,16 @@ public class AnalyticsController implements Initializable {
     }
 
     private void loadGlobalMin(){
-        tfGlobalMin.setText(String.valueOf(globalMin + " KG"));
+        tfGlobalMin.setText(String.valueOf(globalMin + " G"));
     }
 
     private void loadGlobalMax(){
-        tfGlobalMax.setText(String.valueOf(globaMax + " KG"));
+        tfGlobalMax.setText(String.valueOf(globaMax + " G"));
     }
 
     private void loadGlobalAvgDay(){
 
-        tfGlobalWastDay.setText(String.valueOf(GlobalWastPrDay + " KG"));
+        tfGlobalWastDay.setText(String.valueOf(GlobalWastPrDay + " G"));
     }
 
 

@@ -34,9 +34,18 @@ public class CSVParserDAODB implements CSVParserDAO {
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             for (String[] row : data) {
-                statement.setString(1, row[0]);
-                statement.setString(2, row[1]);
-                statement.setString(3, row[2]);
+                String date = row[0];
+                String weight = row[1];
+                String rbID = row[2];
+
+                int decimalIndex = weight.indexOf(".");
+                if (decimalIndex != -1) {
+                    weight = weight.substring(0, decimalIndex);
+                }
+
+                statement.setString(1, date);
+                statement.setString(2, weight);
+                statement.setString(3, rbID);
                 statement.addBatch();
             }
             statement.executeBatch();
