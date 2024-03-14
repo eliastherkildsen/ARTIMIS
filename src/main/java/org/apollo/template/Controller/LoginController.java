@@ -26,7 +26,7 @@ public class LoginController  {
     @FXML
     public TextField usernameField;
     @FXML
-    public PasswordField passwordField = new PasswordField();
+    public PasswordField passwordField;
     @FXML
     AnchorPane anchorPane;
 
