@@ -3,5 +3,6 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/main/java/org/apollo/template/Service/Bin/BinDAODB.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/apollo/template/Service/BinStatus/BinStatusDBSearch.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/apollo/template/Service/CSVParser/CSVParserDAODB.java" dialect="GenericSQL" />
   </component>
 </project>

@@ -16,19 +16,19 @@
             </Text>
             <HBox alignment="TOP_CENTER" prefHeight="27.0" prefWidth="747.0" spacing="40.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="74.0" text="Max capasity" />
+                  <Label prefHeight="17.0" prefWidth="74.0" text="Max capacity" />
                   <TextField fx:id="tfMaxCapacity" prefHeight="25.0" prefWidth="154.0" style="-fx-background-color: white;" />
                </children>
             </HBox>
             <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="62.0" prefHeight="27.0" prefWidth="747.0" spacing="40.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="87.0" text="Instalation date" />
+                  <Label prefHeight="17.0" prefWidth="87.0" text="Installation date" />
                   <DatePicker fx:id="dpInstalationDate" />
                </children>
             </HBox>
             <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="109.0" prefHeight="27.0" prefWidth="747.0" spacing="40.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="53.0" text="Resturent" />
+                  <Label prefHeight="18.0" prefWidth="66.0" text="Restaurant" />
                   <ChoiceBox fx:id="cbResturent" prefWidth="150.0" />
                </children>
             </HBox>

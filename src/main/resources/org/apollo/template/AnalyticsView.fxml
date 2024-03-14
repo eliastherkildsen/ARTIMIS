@@ -72,16 +72,6 @@
                               <DatePicker fx:id="dpEndDate" />
                            </children>
                         </HBox>
-                        <HBox layoutX="10.0" layoutY="97.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <Label prefHeight="20.0" prefWidth="89.0" text="Median line">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <RadioButton mnemonicParsing="false" text="RadioButton" />
-                           </children>
-                        </HBox>
                         <HBox layoutX="10.0" layoutY="126.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="20.0" prefWidth="142.0" text="Global media avg">
