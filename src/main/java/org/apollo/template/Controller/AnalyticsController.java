@@ -4,6 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -12,6 +14,7 @@ import org.apollo.template.Domain.BinStatus;
 import org.apollo.template.Domain.Resturent;
 import org.apollo.template.Service.Bin.BinDAO;
 import org.apollo.template.Service.Bin.BinDAODB;
+import org.apollo.template.Service.BinStatus.BinStatusDAOExtend;
 import org.apollo.template.Service.BinStatus.BinStatusDBSearch;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.Service.Resturent.ResturenDAODB;
@@ -42,6 +45,8 @@ public class AnalyticsController implements Initializable {
     @FXML
     private TableView<BinStatus> tblData;
     private List<BinStatus> binStatusList;
+    @FXML
+    private LineChart<String, Number> lcMain;
 
 
     private AnalyticsController() {
@@ -120,7 +125,7 @@ public class AnalyticsController implements Initializable {
         Date endDate = convertFromLocalDateToDate(dpEndDate.getValue());
 
         // loads the binStatus for the selected restaurants
-        List<BinStatus> binStatusList = loadResturentData(startDate, endDate, lwSelectedData.getItems());
+        binStatusList = loadResturentData(startDate, endDate, lwSelectedData.getItems());
 
         // checks if data has been received.
         if (binStatusList == null){
@@ -128,11 +133,14 @@ public class AnalyticsController implements Initializable {
             return;
         }
 
+        // clear the table
+        tblData.getItems().clear();
+
         // populating table with loaded data.
         tblData.getItems().addAll(binStatusList);
+        loadIntoGraph();
 
     }
-
 
 
     // endregion
@@ -198,13 +206,56 @@ public class AnalyticsController implements Initializable {
 
         TableColumn<BinStatus, Integer> RestaurantColumn = new TableColumn<>("Restaurant");
         RestaurantColumn.setCellValueFactory(new PropertyValueFactory<>("assignedResturent"));
-;
-
 
 
         tblData.getColumns().clear();
         tblData.getColumns().addAll(binIDColumn, dateColumn, weightColumn, RestaurantColumn);
     }
+
+    private void loadIntoGraph(){
+
+        // Clear existing data in the graph.
+        lcMain.getData().clear();
+
+        binDAO = new BinDAODB();
+
+        ArrayList<XYChart.Series> seriesArrayList = new ArrayList<>();
+
+
+        for (Resturent resturent : lwSelectedData.getItems()){
+
+            seriesArrayList.add(new XYChart.Series());
+            seriesArrayList.getLast().setName(resturent.getResturentName());
+            List<Bin> binList = binDAO.readAllFromResturentID(resturent.getResturentID());
+
+            // get all bins assigned to the restaurant.
+            for (Bin bin : binList){
+
+                System.out.println("HERE");
+
+                for (BinStatus binStatus : binStatusList){
+
+                    if (binStatus.getBinID() == bin.getBinID()){
+                        seriesArrayList.getLast().getData().add(new XYChart.Data<>(binStatus.getDateTime(), binStatus.getWeight()));
+
+                    }
+
+                }
+
+            }
+
+
+        }
+
+        for (XYChart.Series series : seriesArrayList){
+            // Add the series to the line chart
+            lcMain.getData().addAll(series);
+        }
+
+
+
+    }
+
 
 
 

@@ -51,4 +51,5 @@ public class BinStatusDBSearch extends BinStatusDAODB implements BinStatusDAOExt
         }
         return binStatusList;
     }
+
 }
