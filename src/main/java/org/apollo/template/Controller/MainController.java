@@ -20,14 +20,17 @@ import static org.apollo.template.ViewLoader.loadView;
 public class MainController implements Initializable {
     private static MainController INSTANCE = new MainController();
 
+    private boolean loginCheck = false;
     @FXML
     public BorderPane borderPane;
     @FXML
     private AnchorPane anchorPane;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //borderPane.setCenter(loadView(ViewList.LOGIN));
-        //borderPane.getLeft().setVisible(false);
+        if (loginCheck == true) {
+            borderPane.setCenter(loadView(ViewList.LOGIN));
+            borderPane.getLeft().setVisible(false);
+        }
     }
 
     @FXML
@@ -51,6 +54,10 @@ public class MainController implements Initializable {
 
     @FXML
     protected void onBtnOperationStatus ( ) { borderPane.setCenter(loadView(ViewList.OPERATION)); }
+    @FXML
+    protected void onBtnAnalytics  ( ) {
+        borderPane.setCenter(loadView(ViewList.ANALYTICS));
+    }
 
     public void changeView(ViewList viewList){
         borderPane.setCenter(loadView(viewList));

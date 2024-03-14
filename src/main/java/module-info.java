@@ -12,4 +12,6 @@ module org.apollo.template {
     opens org.apollo.template.Controller to javafx.fxml;
     exports org.apollo.template.Controller.Resturent;
     opens org.apollo.template.Controller.Resturent to javafx.fxml;
+    opens org.apollo.template.Domain to javafx.base;
+
 }

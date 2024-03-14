@@ -221,7 +221,4 @@ public class ResturentEditController implements Initializable {
         }
     }
 
-
-        // removes the bins refference to resturent if not assigned in the LW.
-
 }
