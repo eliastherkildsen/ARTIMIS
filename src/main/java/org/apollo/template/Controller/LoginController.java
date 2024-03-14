@@ -41,14 +41,15 @@ public class LoginController  {
         String passwordCheck = "test123";
         String enteredPassword = passwordField.getText();
         if (Objects.equals(usernameField.getText(), locationUsername) && enteredPassword.equals(passwordCheck)) {
-             MainController.getInstance().borderPane.getLeft().setVisible(true);
-             anchorPane.setVisible(false);
+            anchorPane.setVisible(false);
             MainController.getInstance().borderPane.setCenter(loadView(ViewList.OPERATION));
+            MainController.getInstance().borderPane.getLeft().setVisible(true);
         }
         else if (Objects.equals(usernameField.getText(), concernUsername) && enteredPassword.equals(passwordCheck)) {
-             MainController.getInstance().borderPane.getLeft().setVisible(true);
-             anchorPane.setVisible(false);
+
+            anchorPane.setVisible(false);
             MainController.getInstance().borderPane.setCenter(loadView(ViewList.OPERATION));
+            MainController.getInstance().borderPane.getLeft().setVisible(true);
         }
         else {
              System.out.println("Failed Login");

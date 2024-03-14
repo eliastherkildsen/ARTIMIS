@@ -77,7 +77,7 @@ public class StatisticController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         choiseBoxSetVal();
-        yesterdayBarChart();
+        //yesterdayBarChart();
         populateBinCb();
         //weekBarChart();
         //monthBarChart();
