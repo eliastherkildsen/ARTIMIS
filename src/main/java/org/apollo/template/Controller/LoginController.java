@@ -1,36 +1,47 @@
 package org.apollo.template.Controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import org.apollo.template.Service.CSVParser.CSVParserDAO;
+import org.apollo.template.Service.CSVParser.CSVParserDAODB;
 import org.apollo.template.Service.Debugger.DebugMessage;
-import org.apollo.template.View.ViewList;
-import org.apollo.template.ViewLoader;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-
-import static org.apollo.template.ViewLoader.loadView;
 
 public class LoginController  {
 
     private static LoginController INSTANCE = new LoginController();
 
     @FXML
-    public TextField usernameField, passwordField;
+    public TextField usernameField;
+    @FXML
+    public PasswordField passwordField = new PasswordField();
     @FXML
     AnchorPane anchorPane;
+
 
     @FXML
     protected void onLoginBTN(){
         String locationUsername = "Loc";
         String concernUsername = "Ceo";
         String passwordCheck = "test123";
-        if (Objects.equals(usernameField.getText(), locationUsername) && Objects.equals(passwordField.getText(), passwordCheck)) {
+        String enteredPassword = passwordField.getText();
+        if (Objects.equals(usernameField.getText(), locationUsername) && enteredPassword.equals(passwordCheck)) {
              MainController.getInstance().borderPane.getLeft().setVisible(true);
              anchorPane.setVisible(false);
         }
-        else if (Objects.equals(usernameField.getText(), concernUsername) && Objects.equals(passwordField.getText(), passwordCheck)) {
+        else if (Objects.equals(usernameField.getText(), concernUsername) && enteredPassword.equals(passwordCheck)) {
              MainController.getInstance().borderPane.getLeft().setVisible(true);
              anchorPane.setVisible(false);
         }

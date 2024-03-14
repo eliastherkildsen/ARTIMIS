@@ -30,7 +30,7 @@ public class BinStatusDAODB implements BinStatusDAO{
             while(rs.next()){
 
                 int fldStatusID = rs.getInt("fldStatusID");
-                String fldDate = rs.getString("fldDate");
+                String fldDate = rs.getString("fldDateTime");
                 int fldWeight = rs.getInt("fldWeight");
                 int fldBinID = rs.getInt("fldBinID");
 
