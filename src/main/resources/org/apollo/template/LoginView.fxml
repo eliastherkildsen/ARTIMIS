@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="497.0" prefWidth="654.0" stylesheets="@css/Resturent.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" prefHeight="497.0" prefWidth="654.0" stylesheets="@css/Resturent.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox layoutY="-1.0" prefHeight="497.0" prefWidth="654.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
          <children>
@@ -30,22 +37,46 @@
                               <Insets top="20.0" />
                            </VBox.margin>
                         </Text>
-                        <TextField fx:id="usernameField" maxWidth="300.0" prefHeight="35.0" prefWidth="190.0" promptText="Username" style="-fx-fill: black;">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="45.0" right="45.0" top="40.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <PasswordField fx:id="passwordField" maxWidth="300.0" prefHeight="35.0" prefWidth="190.0" promptText="Password">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="45.0" right="45.0" />
-                           </VBox.margin>
-                        </PasswordField>
+                        <VBox prefHeight="62.0" prefWidth="234.0">
+                           <children>
+                              <Label text="Username">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="usernameField" maxWidth="300.0" prefHeight="35.0" prefWidth="190.0" promptText="Username" style="-fx-fill: black;">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="20.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="72.0" prefWidth="340.0">
+                           <children>
+                              <Label maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Password">
+                                 <VBox.margin>
+                                    <Insets left="20.0" right="20.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="passwordField" maxWidth="300.0" prefHeight="35.0" prefWidth="190.0" promptText="Password">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="20.0" right="20.0" />
+                                 </VBox.margin>
+                              </PasswordField>
+                           </children>
+                        </VBox>
                         <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#onLoginBTN" text="Login">
                            <font>
                               <Font size="14.0" />
