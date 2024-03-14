@@ -248,7 +248,6 @@ public class AnalyticsController implements Initializable {
             // get all bins assigned to the restaurant.
             for (Bin bin : binList){
 
-                System.out.println("HERE");
 
                 for (BinStatus binStatus : binStatusList){
 
@@ -271,7 +270,6 @@ public class AnalyticsController implements Initializable {
 
             }
             GlobalWastPrDay = globalTotalWeight / totalDays;
-            System.out.println("TOTAL day: " + totalDays);
 
 
         }
