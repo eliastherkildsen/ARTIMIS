@@ -15,7 +15,8 @@ public enum ViewList {
     HOME("HomeView.fxml", HomeController.getInstance()),
     OPERATION("OperationsTab.fxml", OperationsTabController.getInstance()),
     LOGIN("LoginView.fxml", LoginController.getInstance()),
-    CREATE_BIN("CreateBinView.fxml", BinCreateController.getInstance());
+    CREATE_BIN("CreateBinView.fxml", BinCreateController.getInstance()),
+    STATISTIC("StatisticView.fxml", StatisticController.getInstance());
 
     private final String FXML_FILE_NAME;
     private final Object CONTROLLER;
