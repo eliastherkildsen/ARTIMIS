@@ -14,6 +14,7 @@
     -fx-text-fill: #000000;
     -fx-font-weight: bold;
     -fx-font-size: 12px;
+    -fx-border-color: black;
 }
 
 .anchor-pane {
@@ -23,14 +24,14 @@
 
 .list-view {
     -fx-font-family: "Times New Roman";
-    -fx-background-color: #769be1;
+    -fx-background-color: #f0eded;
     -fx-background-radius: 10;
 
 }
 
 .list-view .cell {
-    -fx-background-color: #769be1;
-    -fx-text-fill: white;
+    -fx-background-color: #f0eded;
+    -fx-text-fill: black;
 
 }
 
@@ -46,21 +47,21 @@
 }
 
 .text-field{
-    -fx-text-fill: WHITE;
-    -fx-background-color: #769be1;
+    -fx-text-fill: black;
+    -fx-background-color: white;
 }
 
 .choice-box{
     -fx-text-fill: white;
-    -fx-background-color: #769be1;
+    -fx-background-color: white;
 }
 
 .choice-box .label {
-    -fx-text-fill: white; /* Set the text color */
+    -fx-text-fill: black; /* Set the text color */
 }
 
 .choice-box .context-menu{
-    -fx-background-color: #769be1;
+    -fx-background-color: #ededed;
 }
 
 

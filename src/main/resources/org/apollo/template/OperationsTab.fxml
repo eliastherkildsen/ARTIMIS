@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="420.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="420.0" prefWidth="614.0" stylesheets="@css/Resturent.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <HBox prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
-                  <VBox alignment="CENTER" prefHeight="282.0" prefWidth="244.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10 0 0 10;">
+                  <VBox alignment="CENTER" prefHeight="282.0" prefWidth="244.0" style="-fx-background-color: #ededed; -fx-background-radius: 10 0 0 10;">
                      <HBox.margin>
                         <Insets bottom="10.0" left="20.0" />
                      </HBox.margin>
@@ -112,11 +107,11 @@
                         <Insets left="10.0" />
                      </padding>
                   </VBox>
-                  <PieChart fx:id="OperationsPieChart" prefHeight="179.0" prefWidth="196.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 0 10 10 0;" HBox.hgrow="ALWAYS">
+                  <PieChart fx:id="OperationsPieChart" prefHeight="179.0" prefWidth="196.0" style="-fx-background-color: #ededed; -fx-background-radius: 0 10 10 0;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets bottom="10.0" right="15.0" />
                      </HBox.margin></PieChart>
-                  <VBox maxWidth="400.0" prefHeight="179.0" prefWidth="185.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                  <VBox alignment="CENTER" maxWidth="400.0" prefHeight="179.0" prefWidth="185.0" style="-fx-background-color: #ededed; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
                      <children>
                         <HBox alignment="TOP_CENTER" prefHeight="39.0" prefWidth="159.0">
                            <children>
@@ -210,7 +205,7 @@
             </HBox>
             <HBox prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
-                  <VBox prefHeight="179.0" prefWidth="178.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                  <VBox prefHeight="179.0" prefWidth="178.0" style="-fx-background-color: #ededed; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets bottom="10.0" left="20.0" right="15.0" top="10.0" />
                      </HBox.margin>
@@ -224,10 +219,10 @@
                               </Label>
                            </children>
                         </HBox>
-                        <ListView fx:id="LVAllBins" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;" stylesheets="@css/Menu.css" />
+                        <ListView fx:id="LVAllBins" prefHeight="320.0" prefWidth="348.0" style="-fx-background-color: f0eded; -fx-background-radius: 10;" stylesheets="@css/Menu.css" />
                      </children>
                   </VBox>
-                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="370.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="370.0" style="-fx-background-color: #ededed; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </HBox.margin>
