@@ -35,7 +35,7 @@
                                     <Insets right="35.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="lbTotal" text="123">
+                              <Label fx:id="lbTotal">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -52,7 +52,7 @@
                                     <Insets right="22.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="lbOperational" text="123">
+                              <Label fx:id="lbOperational" text="7">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -69,7 +69,7 @@
                                     <Insets right="24.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="lbUnavailable" text="123">
+                              <Label fx:id="lbUnavailable" text="5">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -86,7 +86,7 @@
                                     <Insets right="74.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="lbFull" text="123">
+                              <Label fx:id="lbFull" text="3">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -157,7 +157,7 @@
                                     <Insets right="38.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label text="123">
+                              <Label fx:id="lbWeeklyWeight" text="123">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -231,10 +231,16 @@
                            </VBox.margin>
                         </HBox>
                         <ChoiceBox fx:id="cbLocations" prefWidth="150.0" style="-fx-background-color: B4E0F8;" />
-                        <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#onActionBtnConfirm" style="-fx-background-color: B4E0F8;" text="Confirm">
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin></Button>
+                        <HBox alignment="CENTER" prefHeight="72.0" prefWidth="370.0">
+                           <children>
+                              <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#onActionBtnConfirm" style="-fx-background-color: B4E0F8;" text="Confirm">
+                                 <HBox.margin>
+                                    <Insets right="25.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="btnViewAll" mnemonicParsing="false" onAction="#btnViewAllOnAction" style="-fx-background-color: B4E0F8;" text="Veiw All" />
+                           </children>
+                        </HBox>
                      </children></VBox>
                </children></HBox>
          </children>
