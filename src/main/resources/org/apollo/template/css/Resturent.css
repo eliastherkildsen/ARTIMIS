@@ -20,6 +20,7 @@
 .anchor-pane {
 
     -fx-background-color: #769be1;
+    -fx-prompt-text-fill: WHITE;
 }
 
 .list-view {
