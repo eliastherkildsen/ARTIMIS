@@ -37,10 +37,14 @@ public class MainController implements Initializable {
     protected void onBtnHome() {
         borderPane.setCenter(loadView(ViewList.HOME));
     }
+    @FXML
+    protected void onBtnCreateBin() {
+        borderPane.setCenter(loadView(ViewList.CREATE_BIN));
+    }
 
     @FXML
-    protected void onBtnSettings( ) {
-        borderPane.setCenter(loadView(ViewList.SETTINGS));
+    protected void onBtnStatistic( ) {
+        borderPane.setCenter(loadView(ViewList.STATISTIC));
     }
 
     @FXML
@@ -50,6 +54,10 @@ public class MainController implements Initializable {
 
     @FXML
     protected void onBtnOperationStatus ( ) { borderPane.setCenter(loadView(ViewList.OPERATION)); }
+    @FXML
+    protected void onBtnAnalytics  ( ) {
+        borderPane.setCenter(loadView(ViewList.ANALYTICS));
+    }
 
     public void changeView(ViewList viewList){
         borderPane.setCenter(loadView(viewList));

@@ -4,10 +4,7 @@ import org.apollo.template.Domain.Bin;
 import org.apollo.template.Service.Database.JDBC;
 import org.apollo.template.Service.Debugger.DebugMessage;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +18,13 @@ public class BinDAODB implements BinDAO {
 
             PreparedStatement ps = conn.prepareCall("INSERT INTO tblBin(fldMaxCapacity, fldInstallationDate, fldResturantID) VALUES (?,?,?)");
 
+            // cast java.util.Date -> java.sql.Date
+
             ps.setInt(1, bin.getMaxCapacity());
-            ps.setDate(2, (java.sql.Date)bin.getInstalationDate());
+            ps.setDate(2, new java.sql.Date(bin.getInstalationDate().getTime()));
             ps.setInt(3, bin.getResturentID());
 
-            ps.executeQuery();
+            ps.executeUpdate();
 
             DebugMessage.info(this, " Added a new bin to the database.");
 
@@ -62,7 +61,7 @@ public class BinDAODB implements BinDAO {
         return null;
     }
 
-    public Bin readFromResturentID(int id) {
+    public List<Bin> readFromResturentID(int id) {
         try{
 
             PreparedStatement ps = conn.prepareCall("SELECT * FROM tblBin WHERE fldResturantID = ?");
@@ -71,16 +70,24 @@ public class BinDAODB implements BinDAO {
 
             ResultSet rs = ps.executeQuery();
 
-            int fldMaxCapacity = rs.getInt("fldMaxCapacity");
-            java.sql.Date fldInstallationDate = rs.getDate("fldInstallationDate");
-            int fldResturantID = rs.getInt("fldResturantID");
-            int fldBinID = rs.getInt("fldBinID");
+            List<Bin> binList = new ArrayList<>();
+
+            while(rs.next()){
+
+                int fldMaxCapacity = rs.getInt("fldMaxCapacity");
+                java.sql.Date fldInstallationDate = rs.getDate("fldInstallationDate");
+                int fldResturantID = rs.getInt("fldResturantID");
+                int fldBinID = rs.getInt("fldBinID");
+
+                binList.add(new Bin(fldBinID, fldResturantID, fldMaxCapacity, fldInstallationDate));
+
+            }
 
             DebugMessage.info(this, " fetching bin with resturent ID: " + id);
 
             ps.close();
 
-            return new Bin(id, fldResturantID, fldMaxCapacity, fldInstallationDate);
+            return binList;
 
         }catch (SQLException e){
             DebugMessage.error(this, " in read; An error occurred " + e.getMessage());
@@ -135,8 +142,9 @@ public class BinDAODB implements BinDAO {
                 int fldMaxCapacity = rs.getInt("fldMaxCapacity");
                 java.sql.Date fldInstallationDate = rs.getDate("fldInstallationDate");
                 int fldResturantID = rs.getInt("fldResturantID");
+                int binID = rs.getInt("fldBinID");
 
-                binList.add(new Bin(id, fldResturantID, fldMaxCapacity, fldInstallationDate));
+                binList.add(new Bin(binID, fldResturantID, fldMaxCapacity, fldInstallationDate));
 
             }
 

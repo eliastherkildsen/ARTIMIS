@@ -1,15 +1,24 @@
 package org.apollo.template.Controller.Resturent;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import org.apollo.template.Controller.MainController;
 import org.apollo.template.Domain.City;
+import org.apollo.template.Domain.Resturent;
+import org.apollo.template.Service.City.CityDAO;
+import org.apollo.template.Service.City.CityDAODB;
 import org.apollo.template.Service.Debugger.DebugMessage;
+import org.apollo.template.Service.Resturent.ResturenDAODB;
+import org.apollo.template.Service.Resturent.ResturentDAO;
 import org.apollo.template.View.ViewList;
 
-public class ResturentCreateController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ResturentCreateController implements Initializable {
 
     private static ResturentCreateController INSTANCE = new ResturentCreateController();
     @FXML
@@ -18,6 +27,8 @@ public class ResturentCreateController {
     private TextField tfName, tfAdress;
     @FXML
     private ChoiceBox<City> cbCity;
+    private ResturentDAO resturentDAO;
+    private CityDAO cityDAO;
 
     private ResturentCreateController() {
         if (INSTANCE == null) {
@@ -30,6 +41,11 @@ public class ResturentCreateController {
             INSTANCE = new ResturentCreateController();
         }
         return INSTANCE;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadCityCb();
     }
 
     // region buttons
@@ -53,6 +69,10 @@ public class ResturentCreateController {
             DebugMessage.info(this, "In onBtnCreate; No city has been selected! ");
             return;
         }
+
+        // create restaurant
+        resturentDAO = new ResturenDAODB();
+        resturentDAO.add(new Resturent(loadName(), loadAdress(), loadCity()));
 
 
 
@@ -90,7 +110,12 @@ public class ResturentCreateController {
         return cbCity.getSelectionModel().getSelectedItem();
     }
 
+    private void loadCityCb(){
 
+        cityDAO = new CityDAODB();
+        cbCity.getItems().addAll(cityDAO.readAll());
+
+    }
 
     // endregion
 

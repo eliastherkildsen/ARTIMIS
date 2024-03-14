@@ -11,10 +11,12 @@ public enum ViewList {
     RESTURENT("ResturentView.fxml", ResturentController.getInstance()),
     RESTURENT_EDIT("ResturentEditView.fxml", ResturentEditController.getInstance()),
     RESTURENT_CREATE("ResturentCreateView.fxml", ResturentCreateController.getInstance()),
-    SETTINGS("SettingsView.fxml", SettingsController.getInstance()),
+    STATISTIC("StatisticView.fxml", SettingsController.getInstance()),
     HOME("HomeView.fxml", HomeController.getInstance()),
     OPERATION("OperationsTab.fxml", OperationsTabController.getInstance()),
-    LOGIN("LoginView.fxml", LoginController.getInstance());
+    LOGIN("LoginView.fxml", LoginController.getInstance()),
+    CREATE_BIN("CreateBinView.fxml", BinCreateController.getInstance()),
+    ANALYTICS("AnalyticsView.fxml", AnalyticsController.getInstance());
 
     private final String FXML_FILE_NAME;
     private final Object CONTROLLER;

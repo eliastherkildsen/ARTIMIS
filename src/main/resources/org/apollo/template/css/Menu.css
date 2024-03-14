@@ -1,4 +1,5 @@
 .button {
+
     -fx-background-color: transparent;
     -fx-background-radius: 0;
 
@@ -41,10 +42,7 @@
 
 }
 
-.pie-chart {
-    -fx-background-color: #B4D0F8;
-    -fx-background-radius: 0 10 10 0;
-}
+
 
 
 

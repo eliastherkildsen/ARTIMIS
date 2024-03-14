@@ -8,14 +8,21 @@ public class Bin {
     private Integer ResturentID;
     private Date instalationDate;
 
-    public Bin(int binID, int resturentID, int maxCapacity, Date instalationDate) {
+    public Bin(int binID, int resturentID, int maxCapacity, java.sql.Date instalationDate) {
         this.binID = binID;
         ResturentID = resturentID;
         MaxCapacity = maxCapacity;
         this.instalationDate = instalationDate;
     }
 
-    public Bin(int binID, Integer resturentID, int maxCapacity, Date instalationDate) {
+    public Bin(int binID, Integer resturentID, int maxCapacity, java.sql.Date instalationDate) {
+        this.binID = binID;
+        ResturentID = resturentID;
+        MaxCapacity = maxCapacity;
+        this.instalationDate = instalationDate;
+    }
+
+    public Bin(int resturentID, int maxCapacity, Date instalationDate) {
         this.binID = binID;
         ResturentID = resturentID;
         MaxCapacity = maxCapacity;
@@ -50,7 +57,7 @@ public class Bin {
         return instalationDate;
     }
 
-    public void setInstalationDate(Date instalationDate) {
+    public void setInstalationDate(java.sql.Date instalationDate) {
         this.instalationDate = instalationDate;
     }
 
