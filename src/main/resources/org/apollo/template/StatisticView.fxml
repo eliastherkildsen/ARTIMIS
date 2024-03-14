@@ -1,28 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
-   <VBox fx:id="scene" prefHeight="400.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <VBox fx:id="scene" prefHeight="746.0" prefWidth="920.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-         <BarChart fx:id="barChart" animated="false" prefHeight="404.0" prefWidth="606.0">
-           <xAxis>
-             <CategoryAxis side="BOTTOM" fx:id="xAxis" />
-           </xAxis>
-           <yAxis>
-             <NumberAxis fx:id="yAxis" side="LEFT" />
-           </yAxis>
-         </BarChart>
+         <Pane prefHeight="496.0" prefWidth="843.0" VBox.vgrow="ALWAYS">
+            <children>
+               <BarChart fx:id="barChart" animated="false" prefHeight="546.0" prefWidth="798.0">
+                 <xAxis>
+                   <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+                 </xAxis>
+                 <yAxis>
+                   <NumberAxis fx:id="yAxis" side="LEFT" />
+                 </yAxis>
+               </BarChart>
+            </children>
+            <VBox.margin>
+               <Insets left="40.0" right="30.0" top="20.0" />
+            </VBox.margin>
+         </Pane>
+         <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+            <children>
+               <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                  <children>
+                     <HBox prefHeight="22.0" prefWidth="554.0" spacing="31.0">
+                        <children>
+                           <Label fx:id="label_Min" text="Min ">
+                              <padding>
+                                 <Insets right="10.0" />
+                              </padding>
+                           </Label>
+                           <Label fx:id="label_Min_Res" />
+                        </children>
+                        <VBox.margin>
+                           <Insets left="60.0" />
+                        </VBox.margin>
+                     </HBox>
+                     <HBox prefHeight="22.0" prefWidth="553.0" spacing="32.0">
+                        <children>
+                           <Label fx:id="label_Max" text="Max">
+                              <padding>
+                                 <Insets right="10.0" />
+                              </padding>
+                           </Label>
+                           <Label fx:id="label_Max_Res" />
+                        </children>
+                        <VBox.margin>
+                           <Insets left="60.0" top="10.0" />
+                        </VBox.margin>
+                     </HBox>
+                     <HBox prefHeight="100.0" prefWidth="246.0" spacing="10.0">
+                        <children>
+                           <Label fx:id="label_Average_Res" text="Average">
+                              <padding>
+                                 <Insets right="10.0" />
+                              </padding>
+                           </Label>
+                           <Label fx:id="label_Average_Res" />
+                        </children>
+                        <VBox.margin>
+                           <Insets left="60.0" top="10.0" />
+                        </VBox.margin>
+                     </HBox>
+                  </children>
+               </VBox>
+               <VBox alignment="TOP_RIGHT" maxWidth="300.0" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                  <children>
+                      <ChoiceBox fx:id="choiceBox" prefWidth="150.0" VBox.vgrow="ALWAYS">
+                        <VBox.margin>
+                           <Insets right="130.0" />
+                        </VBox.margin>
+                     </ChoiceBox>
+                     <Button fx:id="btn_Confirm" mnemonicParsing="false" onAction="#onBtnConfirmClick" text="Confirm">
+                        <VBox.margin>
+                           <Insets right="130.0" top="10.0" />
+                        </VBox.margin>
+                     </Button>
+                     <VBox alignment="BOTTOM_RIGHT" prefHeight="258.0" prefWidth="300.0">
+                        <children>
+                           <Button mnemonicParsing="false" text="Export">
+                              <VBox.margin>
+                                 <Insets bottom="20.0" right="130.0" />
+                              </VBox.margin>
+                           </Button>
+                        </children>
+                     </VBox>
+                  </children>
+               </VBox>
+            </children>
+         </HBox>
       </children></VBox>
-   <Button fx:id="btnExport" layoutX="549.0" layoutY="513.0" mnemonicParsing="false" text="Export" AnchorPane.bottomAnchor="-138.60000000000002" AnchorPane.rightAnchor="0.6000000000000227" />
-    <ChoiceBox fx:id="choiceBox" layoutX="450.0" layoutY="411.0" prefWidth="150.0" />
-   <Label fx:id="label_Min" layoutY="415.0" text="Min grams" />
-   <Label fx:id="label_Max" layoutY="450.0" text="Max grams" />
-   <Label fx:id="label_Average" layoutY="484.0" text="Average grams" />
-   <Label fx:id="label_Min_Res" layoutX="96.0" layoutY="415.0" />
-   <Label fx:id="label_Max_Res" layoutX="97.0" layoutY="450.0" />
-   <Label fx:id="label_Average_Res" layoutX="97.0" layoutY="484.0" />
-   <Button fx:id="btn_Confirm" layoutX="541.0" layoutY="450.0" mnemonicParsing="false" onAction="#onBtnConfirmClick" text="Confirm" />
 </AnchorPane>

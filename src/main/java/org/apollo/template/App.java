@@ -28,6 +28,7 @@ public class App extends Application {
         stage.getIcons().add(new Image("file:src/main/resources/org/apollo/template/images/TempLogoBG_shadow.png"));
         stage.setMinHeight(600);
         stage.setMinWidth(600);
+
         stage.show();
 
     }

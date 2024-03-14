@@ -356,9 +356,9 @@ public class StatisticController implements Initializable {
         int maxVal = StatisticUtil.maxWeigth(weight);
         double average = StatisticUtil.averageWeight(weight);
 
-        label_Min_Res.setText(String.valueOf(minVal));
-        label_Max_Res.setText(String.valueOf(maxVal));
-        label_Average_Res.setText(String.valueOf(String.format("%.2f",average)));
+        label_Min_Res.setText((String.format("%d %s",minVal, "grams")));
+        label_Max_Res.setText((String.format("%d %s",maxVal, "grams")));
+        label_Average_Res.setText((String.format("%.1f %s",average, "grams")));
     }
 
 
