@@ -64,6 +64,14 @@
     -fx-background-color: #ededed;
 }
 
+.chart-bar {
+    -fx-bar-fill: #769be1;
+}
+
+.chart-pane {
+    -fx-background-color: white !important;
+}
+
 
 
 

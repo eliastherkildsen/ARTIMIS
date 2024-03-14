@@ -20,7 +20,7 @@ import static org.apollo.template.ViewLoader.loadView;
 public class MainController implements Initializable {
     private static MainController INSTANCE = new MainController();
 
-    private boolean loginCheck = true;
+    private boolean loginCheck = false;
     @FXML
     public BorderPane borderPane;
     @FXML
