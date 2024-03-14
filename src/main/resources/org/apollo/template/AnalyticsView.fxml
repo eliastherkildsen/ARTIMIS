@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="786.0" prefWidth="975.0" stylesheets="@css/Resturent.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="786.0" prefWidth="975.0" stylesheets="@css/Resturent.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="746.0" prefWidth="906.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
@@ -27,36 +27,11 @@
                   </LineChart>
                   <VBox prefHeight="451.0" prefWidth="247.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <HBox prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <Label lineSpacing="10.0" prefHeight="20.0" prefWidth="89.0" text="Diagram type">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <ChoiceBox prefHeight="25.0" prefWidth="98.0" />
-                           </children>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <Label prefHeight="20.0" prefWidth="89.0" text="Resturent">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <ChoiceBox fx:id="cbResturent" prefHeight="25.0" prefWidth="106.0" />
-                              <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#onBtnAdd" prefHeight="25.0" prefWidth="45.0" text="+" />
-                              <Button layoutX="185.0" layoutY="10.0" mnemonicParsing="false" onAction="#onBtnRemove" text="-" />
-                           </children>
-                        </HBox>
                         <HBox layoutX="10.0" layoutY="39.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="20.0" prefWidth="89.0" text="Start date">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font>
                               </Label>
                               <DatePicker fx:id="dpStartDate" />
@@ -66,17 +41,42 @@
                            <children>
                               <Label prefHeight="20.0" prefWidth="89.0" text="End date">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font>
                               </Label>
                               <DatePicker fx:id="dpEndDate" />
                            </children>
                         </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="20.0" prefWidth="89.0" text="Resturent">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox fx:id="cbResturent" prefHeight="25.0" prefWidth="106.0" />
+                              <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#onBtnAdd" prefHeight="25.0" prefWidth="45.0" text="+" />
+                              <Button layoutX="185.0" layoutY="10.0" mnemonicParsing="false" onAction="#onBtnRemove" text="-" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="29.0" prefWidth="217.0" spacing="14.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label lineSpacing="10.0" prefHeight="20.0" prefWidth="89.0" text="Diagram type">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox prefHeight="25.0" prefWidth="98.0" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
                         <HBox layoutX="10.0" layoutY="97.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="20.0" prefWidth="89.0" text="Median line">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font>
                               </Label>
                               <RadioButton mnemonicParsing="false" text="RadioButton" />
@@ -86,12 +86,12 @@
                            <children>
                               <Label prefHeight="20.0" prefWidth="142.0" text="Global media avg">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font>
                               </Label>
                               <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font>
                               </Label>
                            </children>
@@ -100,12 +100,12 @@
                            <children>
                               <Label prefHeight="20.0" prefWidth="115.0" text="Global min">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font>
                               </Label>
                               <Label fx:id="tfGlobalMin" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font>
                               </Label>
                            </children>
@@ -114,12 +114,12 @@
                            <children>
                               <Label prefHeight="20.0" prefWidth="115.0" text="Global max">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font>
                               </Label>
                               <Label fx:id="tfGlobalMax" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font>
                               </Label>
                            </children>
@@ -128,12 +128,12 @@
                            <children>
                               <Label prefHeight="20.0" prefWidth="115.0" text="Global wast day">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font>
                               </Label>
                               <Label fx:id="tfGlobalWastDay" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font>
                               </Label>
                            </children>
@@ -142,12 +142,12 @@
                            <children>
                               <Label prefHeight="20.0" prefWidth="115.0" text="Global avg day">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font>
                               </Label>
                               <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font>
                               </Label>
                            </children>
