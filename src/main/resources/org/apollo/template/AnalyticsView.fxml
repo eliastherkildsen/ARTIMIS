@@ -17,16 +17,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="913.0" stylesheets="@css/Resturent.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="786.0" prefWidth="975.0" stylesheets="@css/Resturent.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="746.0" prefWidth="906.0">
+      <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="746.0" prefWidth="906.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
             <Label prefHeight="53.0" prefWidth="168.0" text="Analytics ">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <HBox prefHeight="587.0" prefWidth="1041.0">
+            <HBox prefHeight="587.0" prefWidth="1041.0" VBox.vgrow="ALWAYS">
                <children>
                   <LineChart fx:id="lcMain" prefHeight="451.0" prefWidth="742.0" HBox.hgrow="ALWAYS">
                     <xAxis>
@@ -38,7 +38,7 @@
                   </LineChart>
                   <VBox prefHeight="451.0" prefWidth="247.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <HBox prefHeight="29.0" prefWidth="217.0">
+                        <HBox prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label lineSpacing="10.0" prefHeight="20.0" prefWidth="89.0" text="Diagram type">
                                  <font>
@@ -48,7 +48,7 @@
                               <ChoiceBox prefHeight="25.0" prefWidth="98.0" />
                            </children>
                         </HBox>
-                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="217.0">
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="20.0" prefWidth="89.0" text="Resturent">
                                  <font>
@@ -60,7 +60,7 @@
                               <Button layoutX="185.0" layoutY="10.0" mnemonicParsing="false" onAction="#onBtnRemove" text="-" />
                            </children>
                         </HBox>
-                        <HBox layoutX="10.0" layoutY="39.0" prefHeight="29.0" prefWidth="217.0">
+                        <HBox layoutX="10.0" layoutY="39.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="20.0" prefWidth="89.0" text="Start date">
                                  <font>
@@ -70,7 +70,7 @@
                               <DatePicker fx:id="dpStartDate" />
                            </children>
                         </HBox>
-                        <HBox layoutX="10.0" layoutY="68.0" prefHeight="29.0" prefWidth="217.0">
+                        <HBox layoutX="10.0" layoutY="68.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="20.0" prefWidth="89.0" text="End date">
                                  <font>
@@ -80,7 +80,7 @@
                               <DatePicker fx:id="dpEndDate" />
                            </children>
                         </HBox>
-                        <HBox layoutX="10.0" layoutY="97.0" prefHeight="29.0" prefWidth="217.0">
+                        <HBox layoutX="10.0" layoutY="97.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="20.0" prefWidth="89.0" text="Median line">
                                  <font>
@@ -90,7 +90,7 @@
                               <RadioButton mnemonicParsing="false" text="RadioButton" />
                            </children>
                         </HBox>
-                        <HBox layoutX="10.0" layoutY="126.0" prefHeight="29.0" prefWidth="217.0">
+                        <HBox layoutX="10.0" layoutY="126.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="20.0" prefWidth="115.0" text="Global media avg">
                                  <font>
@@ -104,7 +104,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox layoutX="10.0" layoutY="155.0" prefHeight="29.0" prefWidth="217.0">
+                        <HBox layoutX="10.0" layoutY="155.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="20.0" prefWidth="115.0" text="Global min">
                                  <font>
@@ -118,7 +118,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox layoutX="10.0" layoutY="184.0" prefHeight="29.0" prefWidth="217.0">
+                        <HBox layoutX="10.0" layoutY="184.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="20.0" prefWidth="115.0" text="Global max">
                                  <font>
@@ -132,7 +132,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox layoutX="10.0" layoutY="213.0" prefHeight="29.0" prefWidth="217.0">
+                        <HBox layoutX="10.0" layoutY="213.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="20.0" prefWidth="115.0" text="Global wast day">
                                  <font>
@@ -146,7 +146,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="242.0" prefHeight="29.0" prefWidth="217.0">
+                        <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="242.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Label prefHeight="20.0" prefWidth="115.0" text="Global avg day">
                                  <font>
@@ -176,10 +176,10 @@
                         <Insets bottom="10.0" left="10.0" />
                      </HBox.margin>
                   </TableView>
-                  <VBox prefHeight="377.0" prefWidth="550.0">
+                  <VBox prefHeight="377.0" prefWidth="550.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Selected data" />
-                        <ListView fx:id="lwSelectedData" prefHeight="283.0" prefWidth="445.0">
+                        <Label text="Selected data" VBox.vgrow="ALWAYS" />
+                        <ListView fx:id="lwSelectedData" prefHeight="283.0" prefWidth="445.0" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="10.0" right="10.0" />
                            </VBox.margin></ListView>
