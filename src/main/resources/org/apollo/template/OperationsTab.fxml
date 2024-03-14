@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="400.0" prefWidth="600.0">
+      <VBox layoutX="-2.0" prefHeight="746.0" prefWidth="950.0">
          <children>
-            <HBox prefHeight="200.0" prefWidth="200.0">
+            <HBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="814.0" VBox.vgrow="ALWAYS">
                <children>
-                  <VBox prefHeight="191.0" prefWidth="163.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10 0 0 10;">
+                  <VBox alignment="CENTER" prefHeight="282.0" prefWidth="244.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10 0 0 10;">
                      <HBox.margin>
                         <Insets bottom="10.0" left="20.0" />
                      </HBox.margin>
@@ -25,7 +25,7 @@
                               <Insets bottom="35.0" />
                            </padding>
                         </Label>
-                        <HBox prefHeight="18.0" prefWidth="153.0">
+                        <HBox alignment="CENTER" prefHeight="18.0" prefWidth="153.0">
                            <children>
                               <Label text="Total bins">
                                  <font>
@@ -41,8 +41,11 @@
                                  </font>
                               </Label>
                            </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
                         </HBox>
-                        <HBox prefHeight="21.0" prefWidth="153.0">
+                        <HBox alignment="CENTER" prefHeight="21.0" prefWidth="153.0">
                            <children>
                               <Label text="Operational">
                                  <font>
@@ -58,8 +61,11 @@
                                  </font>
                               </Label>
                            </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
                         </HBox>
-                        <HBox prefHeight="20.0" prefWidth="153.0">
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="153.0">
                            <children>
                               <Label text="Unavailable">
                                  <font>
@@ -75,8 +81,11 @@
                                  </font>
                               </Label>
                            </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
                         </HBox>
-                        <HBox prefHeight="20.0" prefWidth="153.0">
+                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="153.0">
                            <children>
                               <Label text="Full">
                                  <font>
@@ -98,11 +107,11 @@
                         <Insets left="10.0" />
                      </padding>
                   </VBox>
-                  <PieChart fx:id="OperationsPieChart" prefHeight="179.0" prefWidth="196.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 0 10 10 0;">
+                  <PieChart fx:id="OperationsPieChart" prefHeight="282.0" prefWidth="342.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 0 10 10 0;">
                      <HBox.margin>
                         <Insets bottom="10.0" right="15.0" />
                      </HBox.margin></PieChart>
-                  <VBox prefHeight="179.0" prefWidth="185.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
+                  <VBox alignment="CENTER" prefHeight="186.0" prefWidth="247.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
                      <children>
                         <HBox alignment="TOP_CENTER" prefHeight="39.0" prefWidth="159.0">
                            <children>
@@ -113,7 +122,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="20.0" prefWidth="154.0">
+                        <HBox alignment="TOP_CENTER" prefHeight="20.0" prefWidth="154.0">
                            <children>
                               <Label text="Total capacity">
                                  <font>
@@ -130,7 +139,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="17.0" prefWidth="154.0">
+                        <HBox alignment="TOP_CENTER" prefHeight="17.0" prefWidth="154.0">
                            <children>
                               <Label text="Current levels">
                                  <font>
@@ -147,7 +156,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="17.0" prefWidth="154.0">
+                        <HBox alignment="TOP_CENTER" prefHeight="17.0" prefWidth="154.0">
                            <children>
                               <Label text="Weekly total">
                                  <font>
@@ -164,7 +173,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="20.0" prefWidth="154.0">
+                        <HBox alignment="TOP_CENTER" prefHeight="20.0" prefWidth="154.0">
                            <children>
                               <Label text="Life time waste">
                                  <font>
@@ -194,9 +203,9 @@
                   <Insets top="10.0" />
                </padding>
             </HBox>
-            <HBox prefHeight="200.0" prefWidth="200.0">
+            <HBox alignment="TOP_CENTER" prefHeight="380.0" prefWidth="941.0" VBox.vgrow="ALWAYS">
                <children>
-                  <VBox prefHeight="179.0" prefWidth="178.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
+                  <VBox prefHeight="441.0" prefWidth="348.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
                      <HBox.margin>
                         <Insets bottom="10.0" left="20.0" right="15.0" top="10.0" />
                      </HBox.margin>
@@ -213,7 +222,7 @@
                         <ListView fx:id="LVAllBins" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;" stylesheets="@css/Menu.css" />
                      </children>
                   </VBox>
-                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="370.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
+                  <VBox alignment="TOP_CENTER" prefHeight="441.0" prefWidth="480.0" style="-fx-background-color: B4D0F8; -fx-background-radius: 10;">
                      <HBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </HBox.margin>
@@ -230,15 +239,15 @@
                               <Insets bottom="25.0" />
                            </VBox.margin>
                         </HBox>
-                        <ChoiceBox fx:id="cbLocations" prefWidth="150.0" style="-fx-background-color: B4E0F8;" />
+                        <ChoiceBox fx:id="cbLocations" prefWidth="150.0" />
                         <HBox alignment="CENTER" prefHeight="72.0" prefWidth="370.0">
                            <children>
-                              <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#onActionBtnConfirm" style="-fx-background-color: B4E0F8;" text="Confirm">
+                              <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#onActionBtnConfirm" text="Confirm">
                                  <HBox.margin>
                                     <Insets right="25.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="btnViewAll" mnemonicParsing="false" onAction="#btnViewAllOnAction" style="-fx-background-color: B4E0F8;" text="Veiw All" />
+                              <Button fx:id="btnViewAll" mnemonicParsing="false" onAction="#btnViewAllOnAction" text="Veiw All" />
                            </children>
                         </HBox>
                      </children></VBox>

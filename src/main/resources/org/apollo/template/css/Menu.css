@@ -25,7 +25,7 @@
 }
 
 .anchor-pane {
-    -fx-border-color: rgba(73, 67, 67, 0.91);
+    -fx-border-color: transparent;
     -fx-border-width: 0px 1px 0px 0px;
 
     -fx-background-color: #769be1;
@@ -41,6 +41,7 @@
     -fx-text-fill: black;
 
 }
+
 
 
 
