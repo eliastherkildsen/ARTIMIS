@@ -49,6 +49,7 @@
 .text-field{
     -fx-text-fill: black;
     -fx-background-color: white;
+    -fx-prompt-text-fill: WHITE;
 }
 
 .choice-box{

@@ -8,7 +8,7 @@
    <children>
       <VBox alignment="TOP_CENTER" layoutX="175.0" layoutY="70.0" maxHeight="400.0" minWidth="400.0" prefHeight="315.0" prefWidth="347.0" spacing="20.0" style="-fx-background-color: #ededed; -fx-background-radius: 10;" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="120.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Create Resturent" wrappingWidth="187.4140625">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Create Restaurants" wrappingWidth="200.4140625">
                <font>
                   <Font size="24.0" />
                </font>

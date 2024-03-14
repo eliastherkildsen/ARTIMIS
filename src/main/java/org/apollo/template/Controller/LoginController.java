@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import org.apollo.template.Service.CSVParser.CSVParserDAO;
 import org.apollo.template.Service.CSVParser.CSVParserDAODB;
 import org.apollo.template.Service.Debugger.DebugMessage;
+import org.apollo.template.View.ViewList;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +19,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static org.apollo.template.ViewLoader.loadView;
 
 public class LoginController  {
 
@@ -40,10 +43,12 @@ public class LoginController  {
         if (Objects.equals(usernameField.getText(), locationUsername) && enteredPassword.equals(passwordCheck)) {
              MainController.getInstance().borderPane.getLeft().setVisible(true);
              anchorPane.setVisible(false);
+            MainController.getInstance().borderPane.setCenter(loadView(ViewList.OPERATION));
         }
         else if (Objects.equals(usernameField.getText(), concernUsername) && enteredPassword.equals(passwordCheck)) {
              MainController.getInstance().borderPane.getLeft().setVisible(true);
              anchorPane.setVisible(false);
+            MainController.getInstance().borderPane.setCenter(loadView(ViewList.OPERATION));
         }
         else {
              System.out.println("Failed Login");
