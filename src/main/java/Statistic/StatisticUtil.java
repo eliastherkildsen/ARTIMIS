@@ -166,7 +166,7 @@ public class StatisticUtil {
             LocalDate prevMonth = currentDate.minusMonths(i);
 
             String monthPrev = String.valueOf(prevMonth.getMonth());
-            System.out.println(monthPrev);
+            //System.out.println(monthPrev);
 
             month12.add(monthPrev);
         }

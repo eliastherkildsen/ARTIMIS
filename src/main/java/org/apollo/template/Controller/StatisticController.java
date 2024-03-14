@@ -44,12 +44,12 @@ public class StatisticController implements Initializable {
     @FXML
     private ChoiceBox choiceBox;
     @FXML
-    private Button btnExport;
+    private Button btnExport, btn_Confirm;
     @FXML
     private Label label_Min, label_Max, label_Average, label_empties, label_Min_Res, label_Max_Res, label_Average_Res;
 
     private StatisticDAO statisticDAO = new StatisticDAODB();
-
+    private int binID = 1;
     private int daysToShow;
     private String wasteDesignation = "in grams";
 
@@ -81,7 +81,6 @@ public class StatisticController implements Initializable {
     }
 
 
-    @FXML
     public void onBtnConfirmClick(){
 
         barChart.getData().clear();
@@ -131,7 +130,7 @@ public class StatisticController implements Initializable {
             seriesYesterday.setName("Waste " + wasteDesignation);
 
 
-            List<Records> chosenRecords = statisticDAO.readRecords(daysToShow);
+            List<Records> chosenRecords = statisticDAO.readRecords(daysToShow, binID);
 
             List<String> time = new ArrayList<>(StatisticUtil.timeDay(chosenRecords));
             List<Integer> weight = new ArrayList<>(StatisticUtil.timeWeights(chosenRecords));
@@ -176,7 +175,7 @@ public class StatisticController implements Initializable {
             seriesWeek.setName("Waste " + wasteDesignation);
 
 
-            List<Records> chosenRecords = statisticDAO.readRecords(daysToShow);
+            List<Records> chosenRecords = statisticDAO.readRecords(daysToShow, binID);
 
             List<String> date = new ArrayList<>(StatisticUtil.datesPeriod(chosenRecords));
             List<Integer> weight = new ArrayList<>(StatisticUtil.weightsPerDayPeriod(chosenRecords));
@@ -221,7 +220,7 @@ public class StatisticController implements Initializable {
             seriesMonth.setName("Waste " + wasteDesignation);
 
 
-            List<Records> chosenRecords = statisticDAO.readRecords(daysToShow);
+            List<Records> chosenRecords = statisticDAO.readRecords(daysToShow, binID);
 
             List<String> date = new ArrayList<>(StatisticUtil.datesPeriod(chosenRecords));
             List<Integer> weight = new ArrayList<>(StatisticUtil.weightsPerDayPeriod(chosenRecords));
@@ -307,7 +306,7 @@ public class StatisticController implements Initializable {
             seriesYear.setName("Waste " + wasteDesignation);
 
 
-            List<Records> chosenRecords = statisticDAO.readRecords(daysToShow);
+            List<Records> chosenRecords = statisticDAO.readRecords(daysToShow, binID);
 
             List<String> month = new ArrayList<>(StatisticUtil.prev12MonthsByName());
             List<Integer> weight = new ArrayList<>(StatisticUtil.weightsPerMonth(chosenRecords));
