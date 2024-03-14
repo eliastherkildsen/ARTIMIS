@@ -21,6 +21,7 @@ import org.apollo.template.Service.Resturent.ResturenDAODB;
 import org.apollo.template.Service.Resturent.ResturentDAO;
 
 import java.net.URL;
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -47,6 +48,10 @@ public class AnalyticsController implements Initializable {
     private List<BinStatus> binStatusList;
     @FXML
     private LineChart<String, Number> lcMain;
+    @FXML
+    private Label tfGlobalMin, tfGlobalMax, tfGlobalWastDay;
+
+    private int globalMin, globaMax, GlobalWastPrDay, totalDays, globalTotalWeight;
 
 
     private AnalyticsController() {
@@ -138,7 +143,14 @@ public class AnalyticsController implements Initializable {
 
         // populating table with loaded data.
         tblData.getItems().addAll(binStatusList);
+
+        getTotalSelectDays();
+
         loadIntoGraph();
+
+        loadGlobalMax();
+        loadGlobalMin();
+        loadGlobalAvgDay();
 
     }
 
@@ -183,6 +195,11 @@ public class AnalyticsController implements Initializable {
 
         return binStatusList = new BinStatusDBSearch().fetchStatus(startDate, endDate, binIDList);
 
+    }
+
+    public void getTotalSelectDays(){
+        long diffInMilliseconds = Math.abs(loadStartDate().getTime() - loadEndDate().getTime());
+        totalDays = (int) (diffInMilliseconds / (1000 * 60 * 60 * 24));
     }
 
     // endregion
@@ -231,18 +248,28 @@ public class AnalyticsController implements Initializable {
             // get all bins assigned to the restaurant.
             for (Bin bin : binList){
 
-                System.out.println("HERE");
 
                 for (BinStatus binStatus : binStatusList){
 
                     if (binStatus.getBinID() == bin.getBinID()){
                         seriesArrayList.getLast().getData().add(new XYChart.Data<>(binStatus.getDateTime(), binStatus.getWeight()));
 
+                        globalTotalWeight += binStatus.getWeight();
+
+                        if (globaMax < binStatus.getWeight()){
+                            globaMax = binStatus.getWeight();
+                        }
+
+                        if (globalMin > binStatus.getWeight()){
+                            globalMin = binStatus.getWeight();
+                        }
+
                     }
 
                 }
 
             }
+            GlobalWastPrDay = globalTotalWeight / totalDays;
 
 
         }
@@ -255,6 +282,21 @@ public class AnalyticsController implements Initializable {
 
 
     }
+
+    private void loadGlobalMin(){
+        tfGlobalMin.setText(String.valueOf(globalMin + " KG"));
+    }
+
+    private void loadGlobalMax(){
+        tfGlobalMax.setText(String.valueOf(globaMax + " KG"));
+    }
+
+    private void loadGlobalAvgDay(){
+
+        tfGlobalWastDay.setText(String.valueOf(GlobalWastPrDay + " KG"));
+    }
+
+
 
 
 

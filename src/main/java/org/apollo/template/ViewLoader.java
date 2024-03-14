@@ -27,6 +27,7 @@ public class ViewLoader {
         DebugMessage.info("ViewLoader", "Loading view: " + fxmlFileName.getFxmlFileName()
                 + " With Controller: " + fxmlFileName.getController());
 
+
         try {
             return loader.load();
 
