@@ -36,6 +36,9 @@
                               </Label>
                               <DatePicker fx:id="dpStartDate" />
                            </children>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
                         </HBox>
                         <HBox layoutX="10.0" layoutY="68.0" prefHeight="29.0" prefWidth="217.0" VBox.vgrow="ALWAYS">
                            <children>

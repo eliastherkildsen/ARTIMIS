@@ -35,7 +35,7 @@
                            <children>
                               <AnchorPane prefHeight="198.0" prefWidth="263.0">
                                  <children>
-                                    <TextField fx:id="usernameField" layoutX="42.0" layoutY="40.0" maxWidth="180.0" prefHeight="35.0" prefWidth="293.0" promptText="Username" style="-fx-fill: black;" AnchorPane.bottomAnchor="123.2" AnchorPane.topAnchor="40.0">
+                                    <TextField fx:id="usernameField" layoutX="42.0" layoutY="40.0" maxWidth="180.0" prefHeight="35.0" prefWidth="293.0" style="-fx-fill: black;" AnchorPane.bottomAnchor="123.2" AnchorPane.topAnchor="40.0">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -43,7 +43,7 @@
                                           <Cursor fx:constant="DEFAULT" />
                                        </cursor>
                                     </TextField>
-                                    <PasswordField fx:id="passwordField" layoutX="42.0" layoutY="117.0" maxWidth="180.0" prefHeight="35.0" prefWidth="293.0" promptText="Password" AnchorPane.bottomAnchor="45.39999999999998" AnchorPane.topAnchor="117.0">
+                                    <PasswordField fx:id="passwordField" layoutX="42.0" layoutY="117.0" maxWidth="180.0" prefHeight="35.0" prefWidth="293.0" AnchorPane.bottomAnchor="45.39999999999998" AnchorPane.topAnchor="117.0">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
