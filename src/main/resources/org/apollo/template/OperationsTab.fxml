@@ -123,7 +123,7 @@
                                     <Insets right="30.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="lbTotalCap" text="123">
+                              <Label fx:id="lbTotalCap" text="0kg">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -140,7 +140,7 @@
                                     <Insets right="31.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="lbCurrentLevel" text="123">
+                              <Label fx:id="lbCurrentLevel" text="0kg">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -157,7 +157,7 @@
                                     <Insets right="38.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="lbWeeklyWeight" text="123">
+                              <Label fx:id="lbWeeklyWeight" text="0kg">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -174,7 +174,7 @@
                                     <Insets right="23.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="lbLifeTimeWaste" text="123">
+                              <Label fx:id="lbLifeTimeWaste" text="0kg">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
