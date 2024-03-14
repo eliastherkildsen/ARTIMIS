@@ -202,7 +202,7 @@ public class OperationsTabController implements Initializable {
         int weeklyWeight = 0;
 
         LocalDate currentLocalDate = LocalDate.now();
-        LocalDate pastLocalDate = currentLocalDate.plusDays(7);
+        LocalDate pastLocalDate = currentLocalDate.minusDays(7);
 
         Date currentDate = Date.from(currentLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
         Date pastDate = Date.from(pastLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
