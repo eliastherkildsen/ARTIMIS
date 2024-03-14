@@ -19,7 +19,7 @@
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="913.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="746.0" prefWidth="906.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="746.0" prefWidth="906.0">
          <children>
             <Label prefHeight="53.0" prefWidth="168.0" text="Analytics ">
                <font>
@@ -28,7 +28,7 @@
             </Label>
             <HBox prefHeight="587.0" prefWidth="1041.0">
                <children>
-                  <LineChart fx:id="lcMain" animated="false" prefHeight="451.0" prefWidth="742.0">
+                  <LineChart fx:id="lcMain" animated="false" prefHeight="451.0" prefWidth="742.0" HBox.hgrow="ALWAYS">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -111,7 +111,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
+                              <Label fx:id="tfGlobalMin" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -125,7 +125,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
+                              <Label fx:id="tfGlobalMax" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -139,7 +139,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
+                              <Label fx:id="tfGlobalWastDay" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="115.0" text="22 kg" textAlignment="RIGHT">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -165,7 +165,7 @@
                   </VBox>
                </children>
             </HBox>
-            <HBox prefHeight="377.0" prefWidth="1040.0" spacing="20.0">
+            <HBox prefHeight="377.0" prefWidth="1040.0" spacing="20.0" VBox.vgrow="ALWAYS">
                <children>
                   <TableView fx:id="tblData" prefHeight="367.0" prefWidth="651.0">
                     <columns>
