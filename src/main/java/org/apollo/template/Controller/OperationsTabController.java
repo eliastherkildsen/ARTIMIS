@@ -48,7 +48,7 @@ public class OperationsTabController implements Initializable {
     @FXML
     private ChoiceBox<Resturent> cbLocations;
     @FXML
-    private ListView<Integer> LVAllBins;
+    private ListView<String> LVAllBins;
     @FXML
     private Button btnConfirm, btnViewAll;
     @FXML
@@ -171,11 +171,18 @@ public class OperationsTabController implements Initializable {
 
         listOfFoundBins = binDAO.readAllFromResturentID(selected);
         listOfFoundBins.forEach(b -> binIDList.add(b.getBinID()));
-        LVAllBins.getItems().addAll(binIDList);
+        for (Bin b : listOfFoundBins){
+            LVAllBins.getItems().add(b.toString());
+        }
 
         return binIDList;
 
     }
+
+    /***
+     * Method for populating the list view with all bins
+     * @return Returns a list with all bin ID
+     */
     private List<Integer> populateBinLWWithALl(){
 
         List<Integer> binIDList = new ArrayList<>();
@@ -183,7 +190,9 @@ public class OperationsTabController implements Initializable {
         listOfFoundBins = binDAO.readAll();
         listOfFoundBins.forEach(b -> binIDList.add(b.getBinID()));
         lbWeeklyWeight.setText(String.format("%.2fkg",((double) getWeeklyWaste(listOfFoundBins) / 1000)));
-        LVAllBins.getItems().addAll(binIDList);
+        for (Bin b : listOfFoundBins){
+            LVAllBins.getItems().add(b.toString());
+        }
 
         return binIDList;
 
