@@ -247,6 +247,8 @@ public class OperationsTabController implements Initializable {
         double totalCap = (double) getTotalCapacity() / 1000;
 
         lbTotalCap.setText(String.format("%.1f g",totalCap));
+        // only for the view and alignment
+        lbCurrentLevel.setText(String.format("%.1f g", 0.0));
         lbLifeTimeWaste.setText(String.format("%.1f g",((double) BinStatusUtil.getLifeTimeWaste(listOfFoundBins) / 1000)));
 
     }
