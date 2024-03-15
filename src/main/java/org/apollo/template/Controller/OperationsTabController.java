@@ -269,7 +269,7 @@ public class OperationsTabController implements Initializable {
         Date currentDate = Date.from(currentLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
         Date pastDate = Date.from(pastLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
-        for (BinStatus bs : binStatusDAOExtend.fetchStatus(currentDate, pastDate, listOfBins)){
+        for (BinStatus bs : binStatusDAOExtend.fetchStatus(pastDate, currentDate, listOfBins)){
 
             weeklyWeight += bs.getWeight();
 
