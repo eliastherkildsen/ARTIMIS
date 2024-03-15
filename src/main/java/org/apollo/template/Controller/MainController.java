@@ -6,13 +6,21 @@ package org.apollo.template.Controller;
 
  */
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import org.apollo.template.Service.Debugger.DebugMessage;
 import org.apollo.template.View.ViewList;
+import org.apollo.template.ViewLoader;
+
 import java.net.URL;
+import java.util.AbstractList;
 import java.util.ResourceBundle;
 
 import static org.apollo.template.ViewLoader.loadView;
@@ -30,8 +38,32 @@ public class MainController implements Initializable {
         if (loginCheck) {
             borderPane.setCenter(loadView(ViewList.LOGIN));
             borderPane.getLeft().setVisible(false);
+
+            borderPane.setLeft(null);
+            cangeList();
         }
+
     }
+
+    private void cangeList() {
+        ChangeListener<ViewList> viewListChangeListener = new ChangeListener<ViewList>() {
+            @Override
+            public void changed(ObservableValue<? extends ViewList> observableValue, ViewList viewListOld, ViewList newViewlist) {
+                if (newViewlist != viewListOld && newViewlist != ViewList.LOGIN){
+
+                    System.out.println("HER");
+                    borderPane.setLeft(new VBox());
+                }
+            }
+        };
+    }
+
+
+
+
+
+
+
 
     @FXML
     protected void onBtnHome() {
